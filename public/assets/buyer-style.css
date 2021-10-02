@@ -1,0 +1,35 @@
+.priceTag {
+    background: #f44336;
+    padding: 4px;
+    color: white;
+    border: 1px;
+    border-radius: 5px 2px;
+    font-weight: bold;
+    display: initial;
+}
+
+.abtn {
+    color: white;
+    font-weight: bold;
+    float: right;
+    margin-top: -5px !important;
+    background: #f44336 !important;
+    font-weight: bold;
+}
+.abtn:hover{
+    color: white !important;
+}
+
+.compareLink:hover {
+    color: black !important;
+    cursor: pointer;
+}
+.cartItem{
+    background-color: white;
+    color: blueviolet;
+    padding: 5px;
+    width: 100px;
+    height: 25px;
+    border-radius: 50px;
+    margin-top: -10px
+}

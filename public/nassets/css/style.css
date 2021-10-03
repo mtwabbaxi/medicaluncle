@@ -98,7 +98,7 @@ img {
 .cv-btn:focus,input:focus,textarea:focus,button:focus{
     outline: none;
 }
-input {
+input, select {
     width: 100%;
     height: 50px;
     border: 1px solid #d4f0ff;
@@ -760,13 +760,18 @@ p#me_timer span {
     display: flex;
     margin-bottom: 30px;
 }
-.cv-foot-newsletter form input {
+.cv-foot-newsletter form input, input {
     border-radius: 30px 0px 0px 30px;
 }
 .cv-foot-newsletter form .cv-btn {
     border-radius: 0px 30px 30px 0px;
     min-width: 120px;
 }
+
+select {
+    margin-top: 20px;
+}
+
 .cv-foot-newsletter .cv-btn:hover{
     transform: translateX(0px);
     box-shadow: none;
@@ -2289,7 +2294,7 @@ p#me_timer span {
     color: #3cbcff;
     margin-bottom: 5px;
 }
-.cv-login-form input,.pa-forgot-password {
+.cv-login-form input, select,.pa-forgot-password {
     margin-top: 12px;
     display: block;
 }

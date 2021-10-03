@@ -17,11 +17,61 @@
                         <div class="cv-login-form">
                             <h2>Create Account</h2>
                             <p>Use your email for registration</p>
-                            <form>
-                                <input type="text" placeholder="Full Name"/>
-                                <input type="text" placeholder="Email"/>
-                                <input type="password" placeholder="Password"/>
-                                <button class="cv-btn">Sign up</button>
+                            <form method="POST" action="{{ route('register') }}">
+                                @csrf
+
+                                <input id="name" type="text" placeholder="Full Name" 
+                                class="@error('name') is-invalid @enderror" 
+                                name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                    
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+
+                                <input id="email" 
+                                type="email" 
+                                class="@error('email') is-invalid @enderror" placeholder="Email"
+                                name="email" value="{{ old('email') }}" required autocomplete="email">
+                    
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                                
+                                <input id="password" placeholder="Password"
+                                type="password" 
+                                class="@error('password') is-invalid @enderror" 
+                                name="password" required autocomplete="new-password">
+                    
+                                    @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                               
+                                  
+                                <input 
+                                id="password-confirm" 
+                                placeholder="Confirm Password"
+                                type="password"  
+                                name="password_confirmation" required autocomplete="new-password">
+
+                                <select name="gender" required>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                </select>
+
+                                <input type="text" placeholder="Phone number"  name="phonenumber" required>
+
+                                <select name="role" required id="" >
+                                    <option value="seller">Seller</option>
+                                    <option value="customer">Customer/Buyer</option>
+                                </select>
+                                    
+                                <button type="submit" class="cv-btn">Sign up</button>
                              </form>
                         </div>
                     </div>

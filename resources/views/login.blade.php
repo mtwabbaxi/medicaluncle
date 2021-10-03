@@ -19,21 +19,33 @@
                             <p>Use your email for login</p>
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
-                                <input  type="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email" autofocus>
+                                <input  type="email" class="@error('email') is-invalid @enderror" 
+                                name="email" value="{{ old('email') }}" 
+                                required autocomplete="email" placeholder="Email" autofocus>
 
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
-                                    <input id="password" type="password" class=" @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                    <input id="password" 
+                                    type="password" 
+                                    class=" @error('password') is-invalid @enderror" 
+                                    name="password" 
+                                    placeholder="Password"
+                                    required 
+                                    autocomplete="current-password">
 
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
-                                <a href="javascript:;" class="pa-forgot-password" data-toggle="modal" data-target="#forgotModal" data-dismiss="modal" aria-label="Close">Forgot your password?</a>
+                                @if (Route::has('password.request'))
+                                <a class="pa-forgot-password" aria-label="Close" href="{{ route('password.request') }}">
+                                    {{ __('Forgot Your Password?') }}
+                                </a>
+                            @endif
                                 <button type="submit" class="cv-btn">Sign in</button>
                              </form>
                         </div>

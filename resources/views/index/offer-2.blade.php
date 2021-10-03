@@ -1,4 +1,4 @@
-<div class="cv-offer-wrapper">
+<div class="cv-offer-wrapper" style="margin-bottom: 50px">
     <div class="container">
         <div class="row">
             <div class="col-md-6">

@@ -4,6 +4,16 @@ Auth::routes();
 Route::view('/', 'index');
 Route::get('/home', 'HomeController@index')->name('home');
 
+// without auth
+Route::get('shop','IndexController@shop');
+Route::get('product/{id}','IndexController@productDetail');
+Route::get('about','IndexController@about');
+Route::get('contact','IndexController@contact');
+Route::get('blogs','IndexController@blogs');
+Route::get('blog/{id}','IndexController@blogDetail');
+
+// seller routes
+
 Route::get('seller/dashboard','SellerController@index')->middleware('auth','seller');
 Route::get('seller/profile','SellerController@profile')->middleware('auth','seller');
 Route::post('seller/profile','SellerController@insertProfile')->middleware('auth','seller');

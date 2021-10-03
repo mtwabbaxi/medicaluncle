@@ -1,9 +1,12 @@
-<div class="cv-protection-kit spacer-top spacer-bottom">
+
     <div class="container">
         <div class="container">
             <div class="cv-heading">
                 <h1>Self Protection Kit</h1>
                 <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip consequat.</p>
+            </div>
+            <div class="col-12">
+                <span class="seperator"></span>
             </div>
             <div class="row">
                 <div class="col-lg-3 col-sm-6">
@@ -186,4 +189,3 @@
             </div>
         </div>
     </div>
-</div>

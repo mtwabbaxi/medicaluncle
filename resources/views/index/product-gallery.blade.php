@@ -6,15 +6,7 @@
                     <h1>New Arrivals</h1>
                 </div>
             </div>
-            <div class="col-md-7 col-sm-12 col-12">
-                <div class="cv-product-nav cv-product-tab2">
-                    <ul>
-                        <li><a data-filter="*" class="cv-product-active" >All</a></li>
-                        <li><a data-filter=".cv-face" >Disposable</a></li>
-                        <li><a data-filter=".cv-body" >Safety-Suits</a></li>
-                    </ul>
-                </div>
-            </div>
+            
             <div class="col-12">
                 <span class="seperator"></span>
             </div>

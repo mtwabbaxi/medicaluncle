@@ -7,14 +7,14 @@
     </div>
 </div> 
 
-    @include('banner')
-    @include('offer')
-	@include('counter')
-    @include('product-gallery')
-    @include('offer-2')
-    @include('kit')
-    @include('blog-section')
-    @include('login')
-	@include('sign-up')
+    @include('index.banner')
+    @include('index.product-gallery')
+    @include('index.kit')
+    @include('index.offer')
+    @include('index.offer-2')
+	{{-- @include('index.counter') --}}
+    {{-- @include('index.blog-section') --}}
+    @include('index.login')
+	@include('index.sign-up')
 
 @endsection

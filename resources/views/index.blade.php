@@ -14,7 +14,6 @@
     @include('index.offer-2')
 	{{-- @include('index.counter') --}}
     {{-- @include('index.blog-section') --}}
-    @include('index.login')
-	@include('index.sign-up')
+    
 
 @endsection

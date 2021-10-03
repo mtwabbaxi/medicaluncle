@@ -12,6 +12,8 @@
         @include('layouts.main-header')
             @yield('content')
         @include('layouts.footer')
+        @include('index.login')
+	@include('index.sign-up')
         @include('layouts.js-new')
     </div>
 </body>

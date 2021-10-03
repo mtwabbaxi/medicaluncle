@@ -8,7 +8,7 @@
 		<meta name="author" content="Muhammad Talha Waseem">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 		<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
-		<link rel="shortcut icon" href="{{ url('/assets/images/favicon.png') }}" type="image/x-icon">
+		<link rel="shortcut icon" href="{{ url('/nassets/images/fav.png') }}" type="image/x-icon">
 		@include('buyer.layouts.common.css')
 		@include('layouts.css')
 	</head>

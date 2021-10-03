@@ -1,7 +1,7 @@
 <header class="header">
 	<div class="logo-container">
 		<a href="{{ url('buyer/dashboard') }}" class="logo">
-			<img src="{{ url('assets/images/logo.png') }}" height="35" alt="Medical Uncle" />
+			<img src="{{ url('nassets/images/logo.png') }}" height="35" alt="Medical Uncle" />
 		</a>
 		
 
@@ -29,7 +29,6 @@
 					</span>
 				
 			</a>
-			<a style='color:white' class="compareLink"> <?php echo date('d M Y') ?> </a>
 		</div>
 		<div id="userbox" class="userbox">
 			<a href="#" data-toggle="dropdown">

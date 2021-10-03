@@ -17036,7 +17036,7 @@ html.dark .thumbnail {
 }
 .headersubmitlink a:nth-child(1) {
 	text-transform: uppercase;
-    background: #F44336;
+    background: #3cbcff;
     padding: 7px;
     border-radius: 4px;
     margin-right: 6px;
@@ -17076,10 +17076,10 @@ html.dark .thumbnail {
     padding: 15px;
 }
 .recentlyaddedproindex h2 {
-	border-bottom: 2px solid #0188cc;
+	border-bottom: 2px solid #3cbcff;
     padding-bottom: 13px;
     text-transform: uppercase;
-    color: #0188cc;
+    color: #3cbcff;
     font-size: 25px;
 }
 .recentlyaddedproindex .singlerecentlypro {
@@ -17138,7 +17138,7 @@ html.dark .thumbnail {
 }
 
 .topseller-singleproduct .topseller-singleorders span.numberval {
-    background: #0188cc;
+    background: #3cbcff;
     display: inline-block;
     height: 100%;
     width: 33px;
@@ -17157,9 +17157,9 @@ html.dark .thumbnail {
 }
 
 h2.pageheading-topseller {
-    border-bottom: 2px solid #0188cc;
+    border-bottom: 2px solid #3cbcff;
     padding-bottom: 13px;
     text-transform: uppercase;
-    color: #0188cc;
+    color: #3cbcff;
     font-size: 25px;
 }

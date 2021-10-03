@@ -17,7 +17,7 @@
 		<div class="postrequest-leftslider text-center">
 			<h3>Hi, Buyer</h3>
 			<p>Get offers from sellers for your need</p>
-			<a href="rfq" class="btn btn-primary">Request For Quotation</a>
+			<a href="rfq" class="btn" style="background: #3cbcff">Request For Quotation</a>
 		</div>
 	</div>
 

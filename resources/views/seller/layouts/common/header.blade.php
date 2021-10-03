@@ -1,7 +1,7 @@
 <header class="header">
 	<div class="logo-container">
 		<a href="{{ url('seller/dashboard') }}" class="logo">
-			<img src="{{ url('assets/images/logo.png') }}" height="35" alt="Medical Uncle" />
+			<img src="{{ url('nassets/images/logo.png') }}" height="35" alt="Medical Uncle" />
 		</a>
 		<div class="headersubmitlink">
 			<a href="{{ url('seller/products/used') }}">Post Used Product</a>

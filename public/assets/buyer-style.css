@@ -1,5 +1,5 @@
 .priceTag {
-    background: #f44336;
+    background: #3cbcff;
     padding: 4px;
     color: white;
     border: 1px;
@@ -13,7 +13,7 @@
     font-weight: bold;
     float: right;
     margin-top: -5px !important;
-    background: #f44336 !important;
+    background: #3cbcff !important;
     font-weight: bold;
 }
 .abtn:hover{

@@ -34,7 +34,7 @@
                                     <div class="cv-product-img">
                                         <img src="nassets/images/product01.jpg" alt="image" class="img-fluid"/>
                                         <div class="cv-product-button">
-                                            <a href="javascript:;" class="cv-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.312 461.312">
+                                            <a href="{{ url('product/1') }}" class="cv-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.312 461.312">
                                                 <g>
                                                     <path d="M230.656,156.416c-40.96,0-74.24,33.28-74.24,74.24s33.28,74.24,74.24,74.24s74.24-33.28,74.24-74.24
                                                         S271.616,156.416,230.656,156.416z M225.024,208.64c-9.216,0-16.896,7.68-16.896,16.896h-24.576
@@ -47,7 +47,7 @@
                                                         s48.128-107.52,107.52-107.52s107.52,48.128,107.52,107.52S290.048,338.176,230.656,338.176z"></path>
                                                 </g>
                                             </svg> View detail</a>
-                                            <a href="javascript:;" class="cv-btn">
+                                            <a href="" class="cv-btn">
                                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                                                     <g>
                                                         <path d="M507.519,116.384C503.721,111.712,498.021,109,492,109H129.736l-1.484-13.632l-0.053-0.438C121.099,40.812,74.583,0,20,0

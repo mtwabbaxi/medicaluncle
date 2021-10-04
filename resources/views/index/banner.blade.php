@@ -1,8 +1,8 @@
 <div class="cv-banner5">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-5 col-md-12">
-                <div class="cv-banner-text">
+            <div class="col-lg-4 offset-2 col-md-12">
+                <div class="cv-banner-text" style="padding: 135px 0 !important">
                     <h3>Medical Equipments</h3>
                     <h2>We love to find medical </h2>
                     <h2>devices <b>fastly!</b></h2>
@@ -10,8 +10,12 @@
                     <a href="{{ url('shop') }}" class="cv-btn">Shop Now</a>
                 </div>
             </div>
-            <div class="col-lg-7 col-md-12">
-                <div class="cv-banner5-img">
+            <div class="col-lg-4 offset-2 col-md-12">
+                <div class="cv-banner5-img" style="
+                    margin-top: 10px;
+                    margin-right: -24px;
+                    margin-left: -205px;
+                ">
                     <img src="{{ url('nassets/images/banner5-img.png') }}" alt="image">
                 </div>
             </div>

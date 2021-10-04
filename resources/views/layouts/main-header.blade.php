@@ -1,12 +1,12 @@
 <div class="cv-header-style4">
     <div class="container-fluid">
         <div class="row align-items-center">
-            <div class="col-xl-5 col-9">
+            <div class="col-xl-5 col-md-5 offset-2 col-9">
                 <div class="cv-logo">
                     <a href="{{ url('/') }}"><img src="{{ url('nassets/images/logo.png') }}" alt="image" class="img-fluid"></a>
                 </div>
             </div>
-            <div class="col-xl-7 col-3">
+            <div class="col-xl-5 col-md-5 col-3" style="margin-left:-200px">
                 <div class="cv-nav-bar">
                     <div class="cv-menu">
                         <ul>

@@ -17,7 +17,7 @@
                             <div class="cv-product-img">
                                 <img src="nassets/images/product01.jpg" alt="image" class="img-fluid"/>
                                 <div class="cv-product-button">
-                                    <a href="product-single.html" class="cv-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.312 461.312">
+                                    <a href="{{ url('product/1') }}" class="cv-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.312 461.312">
                                         <g>
                                             <path d="M230.656,156.416c-40.96,0-74.24,33.28-74.24,74.24s33.28,74.24,74.24,74.24s74.24-33.28,74.24-74.24
                                                 S271.616,156.416,230.656,156.416z M225.024,208.64c-9.216,0-16.896,7.68-16.896,16.896h-24.576

@@ -6,7 +6,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="cv-foot-box cv-foot-logo">
                     <img src="{{ url('nassets/images/logo.png') }}" alt="image" class="img-fluid"/>
-                    <p>The purpose of this project is to make the purchase of medical Equipments for local businesses and hospitals more accessible.</p>
+                    <p>The purpose of medical uncle is to make the purchase of medical Equipments for local businesses and hospitals more accessible.</p>
                    
                 </div>
             </div>

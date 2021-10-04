@@ -18,7 +18,7 @@
 				</i>
 			
 				
-					<span class="badge badge-info" style="font-size:15px;padding:15px">
+					<span class="badge badge-warning" style="font-size:15px;padding:15px">
 						<?php $cart = App\Cart::where('user_id',Auth::id())->first(); ?>
 						@if ($cart != null)
 						{{ App\Cart_Product::where('cart_id',$cart->id)->count() }}

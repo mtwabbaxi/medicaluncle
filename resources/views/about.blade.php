@@ -28,7 +28,8 @@
                 </div>
             </div>
             <div class="col-lg-7">
-                <div class="cv-about-content">
+                <div class="cv-about-content" style="margin-top: 50px;">
+                   
                     <p>
                         The purpose of medicaluncle is to make the purchase of medical Equipments for local businesses and hospitals more accessible, 
                         currently most businesses and hospitals buy their medical Equipments from out of the country either using Alibaba or 

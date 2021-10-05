@@ -49,7 +49,7 @@
                                                             s48.128-107.52,107.52-107.52s107.52,48.128,107.52,107.52S290.048,338.176,230.656,338.176z"></path>
                                                     </g>
                                                 </svg> View detail</a>
-                                                <a href="" class="cv-btn">
+                                                <a href="{{ url('buyer/add-to-cart/'.$product->id) }}" class="cv-btn">
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                                                         <g>
                                                             <path d="M507.519,116.384C503.721,111.712,498.021,109,492,109H129.736l-1.484-13.632l-0.053-0.438C121.099,40.812,74.583,0,20,0
@@ -71,7 +71,7 @@
                                         <div class="cv-product-data">
                                             <a href="javascript:;" class="cv-price-title">{{ $product->name }}</a>
                                             <p class="cv-pdoduct-price">Rs. {{ $product->price }}</p>
-                                            <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></p>
+                                            <p class="cv-pdoduct-price"> {{ App\User::where('id',$product->user_id)->first()->name }} </p>
                                         </div>
                                     </div>
                                     

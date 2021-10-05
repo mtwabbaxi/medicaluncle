@@ -42,7 +42,7 @@
                         </div>
                         <div class="cv-prod-count">
                             
-                            <button class="cv-btn">add to cart</button>
+                            <a href="{{ url('buyer/add-to-cart/'.$product->id) }}" class="cv-btn">add to cart</a>
                         </div>
                     </div>
                     <div class="col-md-12">    

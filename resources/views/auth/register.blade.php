@@ -1,17 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-<link rel="stylesheet" href="{{ url('css/style.css') }}" />
-<div class="hero-wrap js-fullheight">
-    <div class="overlay"></div>
-    <div id="particles-js"></div>
-    <div class="container">
+
+    <div class="container  mt-4 mb-4">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <img src="{{ asset('assets/images/logo2.png') }}" style="margin-left: 26%;
-                margin-bottom: 12px;margin-top: -90px;" alt="">
+            
                 <div class="card">
-                    <div class="card-header">{{ __('Login') }}</div>
+                    <div class="card-header" style="background: #3cbcff; color:white;">{{ __('Register') }}</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('register') }}">
@@ -114,8 +110,6 @@
             </div>
         </div>
     </div>
-</div>
-
 <script src="js/particles.min.js"></script>
 <script src="js/particle.js"></script>
 @endsection

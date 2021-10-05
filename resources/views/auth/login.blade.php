@@ -1,17 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-<link rel="stylesheet" href="{{ url('css/style.css') }}" />
-<div class="hero-wrap js-fullheight">
-    <div class="overlay"></div>
-    <div id="particles-js"></div>
-    <div class="container">
+
+    <div class="container mt-4 mb-4" >
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <img src="{{ asset('assets/images/logo2.png') }}" style="margin-left: 26%;
-                margin-bottom: 12px; " alt="">
                 <div class="card">
-                    <div class="card-header">{{ __('Login') }}</div>
+                    <div class="card-header" style="background: #3cbcff; color:white;">{{ __('Login') }}</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('login') }}">
@@ -45,21 +40,10 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <div class="col-md-6 offset-md-4">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                        <label class="form-check-label" for="remember">
-                                            {{ __('Remember Me') }}
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
 
                             <div class="form-group row mb-0">
-                                <div class="col-md-8 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
+                                <div class="col-md-6 offset-md-4">
+                                    <button type="submit" style="background: #3cbcff; color:white;" class="btn">
                                         {{ __('Login') }}
                                     </button>
 
@@ -82,7 +66,7 @@
             </div>
         </div>
     </div>
-</div>
+
 
 <script src="js/particles.min.js"></script>
 <script src="js/particle.js"></script>

@@ -12,6 +12,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 // without auth
 Route::get('shop','IndexController@shop');
 Route::get('product/{id}','IndexController@productDetail');
+Route::get('category/{id}','IndexController@categoryDetail');
 Route::post('products','IndexController@searchProduct');
 Route::get('about','IndexController@about');
 Route::get('contact','IndexController@contact');

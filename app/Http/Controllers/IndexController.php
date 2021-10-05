@@ -23,6 +23,11 @@ class IndexController extends Controller
         return view('shop',compact('products'));
     }
 
+    public function categoryDetail($id){
+        $products = Product::where('category_id',$id)->get();
+        return view('shop',compact('products'));
+    }
+
     public function about(){
         return view('about');
     }

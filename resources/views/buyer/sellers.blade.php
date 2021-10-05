@@ -1,8 +1,9 @@
 @extends('buyer.layouts.main')
 @section('content')
 
+@foreach ($sellers as $seller)
 <div class="col-md-4 col-sm-6 col-xs-12">
-    @foreach ($sellers as $seller)
+    
     <section class="hidden-md panel panel-featured-left panel-featured-primary">
         <div class="panel-body">
             <div class="widget-summary widget-summary-xlg">
@@ -24,7 +25,7 @@
             </div>
         </div>
     </section>
-    @endforeach
 </div>
+@endforeach
 
 @endsection

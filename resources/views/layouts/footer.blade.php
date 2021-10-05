@@ -16,7 +16,7 @@
                     <ul>
                         <?php $categories = App\Category::limit(5)->get(); ?>
                         @foreach ($categories as $category)
-                            <li><a href="{{ url('#') }}">{{ $category->name }}</a></li>
+                            <li><a href="{{ url('category/'.$category->id) }}">{{ $category->name }}</a></li>
                         @endforeach
                        
                     </ul>

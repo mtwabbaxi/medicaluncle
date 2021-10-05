@@ -166,7 +166,7 @@
 					</a>
 					<h6 class="card-text" style="font-size:10px; min-height:45px">{{ App\User::find($product->user_id)->name }}</h6>
 					<h6 class="card-text" style="font-style: italic; font-size:10px">{{ App\Category::find($product->category_id)->name }}</h6>
-					<p class="card-text priceTag">₨.{{ $product->price }} </p>
+					<p class="card-text priceTag">₨.{{ number_format($product->price) }} </p>
 					<a class=" btn left-side abtn" href="{{ url('buyer/add-to-cart/'.$product->id) }}">Add to Cart</a>
 				</div>
 			</div>

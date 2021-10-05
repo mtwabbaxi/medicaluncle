@@ -36,7 +36,7 @@
                     <form action="{{ url('products') }}" method="POST">
                         @csrf
                         <input type="text" name="searchTerm" required placeholder="Product Search"/>
-                        <button class="cv-btn">search</button>
+                        <button class="cv-btn"> <i class="fa fa-search"></i> search</button>
                     </form>
                 </div>
             </div>

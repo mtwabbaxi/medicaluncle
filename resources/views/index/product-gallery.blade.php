@@ -54,7 +54,7 @@
                             </div>
                             <div class="cv-product-data">
                                 <a href="javascript:;" class="cv-price-title">{{ $product->name }}</a>
-                                <p class="cv-pdoduct-price">Rs. {{ $product->price }}</p>
+                                <p class="cv-pdoduct-price">Rs. {{ number_format($product->price) }}</p>
                                 <p class="cv-pdoduct-price"> {{ App\User::where('id',$product->user_id)->first()->name }} </p>
                             </div>
                         </div>

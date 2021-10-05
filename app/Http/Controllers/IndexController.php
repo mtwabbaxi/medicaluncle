@@ -3,15 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Product;
 
 class IndexController extends Controller
 {
     public function shop(){
-        return view('shop');
+        $products = Product::orderBy('id','DESC')->get();
+        return view('shop',compact('products'));
     }
 
-    public function productDetail(){
-        return view('product-single');
+    public function productDetail($id){
+        $product = Product::find($id);
+        return view('product-single',compact('product'));
+    }
+
+    public function searchProduct(Request $req){
+        $searchTerm = $req->searchTerm;
+        $products = Product::Where('name', 'like', '%' . $searchTerm . '%')->get();
+        return view('shop',compact('products'));
     }
 
     public function about(){

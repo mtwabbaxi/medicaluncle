@@ -1,12 +1,18 @@
 <?php
 
 Auth::routes();
-Route::view('/', 'index');
+Route::get('/', function(){
+    $products = App\Product::orderBy('id','DESC')->limit(8)->get();
+    $category_id = App\Category::where('name','Covid 19 Supplies')->first()->id;
+    $cproducts = App\Product::where('category_id',$category_id)->orderBy('id','DESC')->limit(4)->get();
+    return view('index',compact('products','cproducts'));
+});
 Route::get('/home', 'HomeController@index')->name('home');
 
 // without auth
 Route::get('shop','IndexController@shop');
 Route::get('product/{id}','IndexController@productDetail');
+Route::post('products','IndexController@searchProduct');
 Route::get('about','IndexController@about');
 Route::get('contact','IndexController@contact');
 Route::get('blogs','IndexController@blogs');

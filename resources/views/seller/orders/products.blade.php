@@ -59,6 +59,11 @@
                                 <p class="font-italic text-muted mb-0 small">
                                     {{ App\Product::find($product->product_id)->excerpt }}
                                 </p>
+                                <p class="font-italic text-muted mb-0 small">
+                                    by: <h6 class="card-text" style="font-size:10px; min-height:15px">
+                                        {{ App\User::find(App\Product::find($product->product_id)->user_id)->name }}
+                                    </h6>
+                                </p>
                                 <div class="d-flex align-items-center justify-content-between mt-1">
                                     <h6 class="font-weight-bold my-2 small">x {{$product->quantity}}</h6>
                                 </div>

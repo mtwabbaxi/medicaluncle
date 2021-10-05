@@ -12,7 +12,7 @@
             </div>
             <div class="col-lg-4 offset-2 col-md-12">
                 <div class="cv-banner5-img" style="
-                    margin-top: 10px;
+                    margin-top: -35px;
                     margin-right: -24px;
                     margin-left: -205px;
                 ">

@@ -20,7 +20,7 @@
         </div>
     </div>
      @else
-        @foreach ($orders as $order)
+        @foreach ($orders->unique('order_no') as $order)
         <div class="col-md-4 col-sm-6 col-xs-12 pr-0">
             <section class="panel panel-horizontal">
                 <div class="panel-body p-lg"> 

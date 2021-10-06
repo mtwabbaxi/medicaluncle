@@ -34,11 +34,7 @@
                 <td><a style="text-decoration: none;" href="{{ asset('storage/catalogs/'.$catalog->pdf) }}" download>{{ $catalog->name }}</a>
                 </td>
                 <td>{{ App\Category::find($catalog->category_id)->name }}</td>
-              
                 <td>{{ $catalog->excerpt }}</td>
-               
-                
-            
             </tr>
             @endforeach
 

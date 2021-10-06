@@ -47,7 +47,7 @@
                         <li>
                            
                             @if (Auth::check())
-                                <a href="{{ url('buyer/dashboard') }}"> 
+                                <a href="{{ url('home') }}"> 
                                     <i class="fa fa-user"></i>
                                      {{ App\User::find(Auth::id())->name }} 
                                 </a>

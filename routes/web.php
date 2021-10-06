@@ -47,7 +47,7 @@ Route::get('seller/buyer-requests','SellerController@buyerRequests')->middleware
 
 Route::get('seller/pending-orders','SellerController@pendingOrders')->middleware('auth');
 Route::get('seller/pending-orders/{id}/products','SellerController@pendingOrderProducts')->middleware('auth','seller');
-Route::post('seller/pending-orders/{id}/{prod}/deliever','SellerController@markAsDeleivered')->middleware('auth','seller');
+Route::post('seller/pending-orders/{id}/{prod}/deliever','SellerController@markAsSent')->middleware('auth','seller');
 
 Route::get('seller/complete-orders','SellerController@completedOrders')->middleware('auth','seller');
 Route::get('seller/complete-orders/{id}/products','SellerController@completedOrderProducts')->middleware('auth','seller');
@@ -69,7 +69,11 @@ Route::get('admin/catalogs', 'AdminController@catalogs')->middleware('auth','adm
 Route::get('admin/catalogs/add', 'AdminController@addCatalog')->middleware('auth','admin');
 
 Route::get('admin/buyers', 'AdminController@buyers')->middleware('auth','admin');
+
 Route::get('admin/orders', 'AdminController@orders')->middleware('auth','admin');
+Route::get('admin/orders/{status}', 'AdminController@statusOrders')->middleware('auth','admin');
+Route::get('admin/orders/{orderId}/products', 'AdminController@ordersProducts')->middleware('auth','admin');
+Route::get('admin/order/{orderId}/{prodId}/{prodStatus}', 'AdminController@updateOrderProductStatus')->middleware('auth','admin');
 
 Route::get('admin/products/category','ProductController@categories')->middleware('auth','admin');
 Route::get('admin/products/category/add','ProductController@addCategory')->middleware('auth','admin');

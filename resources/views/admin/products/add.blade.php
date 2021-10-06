@@ -64,8 +64,7 @@
                     <div class="form-group">
                         <button class="btn btn-block btn-lg btn-success">Submit</button>
                     </div>
-                
-                
+            
                 </form>
                </div>
            </div>

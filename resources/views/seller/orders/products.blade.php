@@ -76,7 +76,8 @@
                                 <div class="d-flex align-items-center justify-content-between mt-1">
                                    <h2> <span class="badge badge-pill badge-warning" style="padding: 11px 16px; font-size:20px"> {{ $product->status }} </span></h2>
                                </div>
-                               @if ($product->status != "Delivered" )
+                               <hr>
+                               @if ($product->vendor_status != "Sent" )
                                 <div class="d-flex align-items-center justify-content-between mt-1">
                                     <form action="{{ url('seller/pending-orders/'.$order->id.'/'.$product->product_id.'/deliever') }}" method="post">
                                         @csrf
@@ -85,11 +86,13 @@
                                             style="color:white;background: #F44336;" 
                                             onclick="return confirm('Are you sure you want to Mark this Product as Delievered?');"
                                             class="btn" >
-                                            Mark as Delivered
+                                            Send to Warehourse?
                                         </button>
                                         </form>
                                 
                                     </div>
+                                @else 
+                                 <span class="badge badge-warning">Sent to Warehourse successfully!</span>
                                 @endif
                             </div>
                             <img id="productImageShow" 

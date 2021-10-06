@@ -25,7 +25,7 @@
   href="{{ url('vendor/datatables/dataTables.bootstrap4.min.css') }}"
   rel="stylesheet"
 />
-<link rel="shortcut icon" href="{{ url('/assets/images/favicon.png') }}" type="image/x-icon">
+<link rel="shortcut icon" href="{{ url('nassets/images/fav.png') }}" type="image/x-icon">
   </head>
   <body id="page-top">
     <div id="wrapper">

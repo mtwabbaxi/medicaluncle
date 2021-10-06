@@ -167,7 +167,7 @@ class OrderController extends Controller
     }
 
     public function completedOrders(){
-        $orders = Order::where('buyer_id',Auth::id())->where('status','Completed')->get();
+        $orders = Order::where('buyer_id',Auth::id())->where('status','Completed')->orderBy('id','DESC')->get();
         return view('buyer.orders.completed',compact('orders'));
     }
 

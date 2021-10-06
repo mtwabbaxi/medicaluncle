@@ -8,7 +8,10 @@
             <a href="{{ url('buyer/pending-orders') }}">
                 Pending Orders
                 <span class="badge badge-warning"> 
-                    {{  App\Order::where('buyer_id',Auth::id())->where('status','OrderPlaced')->count() }} 
+                   <?php $count = App\Order::where('buyer_id',Auth::id())->where('status','OrderPlaced')->count() ; ?> 
+                   @if ($count > 0)
+                       new
+                   @endif
                 </span>
             </a>
         </li>
@@ -16,7 +19,7 @@
             <a href="{{ url('buyer/completed-orders') }}">
                 Completed Orders
                 <span class="badge badge-warning"> 
-                    {{  App\Order::where('buyer_id',Auth::id())->where('status','Completed')->count() }} 
+                    {{  App\Order::where('buyer_id',Auth::id())->where('status','Completed')->distinct('order_no')->count() }} 
                 </span> 
             </a>
         </li>

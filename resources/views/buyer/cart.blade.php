@@ -32,7 +32,7 @@
                     </a>
                     <div class="media-body pt-3">
                         <h3 class="product-card-title font-weight-semibold border-0 pb-0"><a href="#"> {{ $p->name }} </a></h3>
-                        Per item Price <div class="font-size-lg text-primary pt-2">   ${{ $p->price }}</div>
+                        Per item Price <div class="font-size-lg text-primary pt-2">   Rs. {{ $p->price }} pkr</div>
                     </div>
                 </div>
 
@@ -75,8 +75,8 @@
         </div>
         <!-- Sidebar-->
         <div class="col-xl-3 col-md-4 pt-3 pt-md-0">
-            <h2 class="h6 px-4 py-3 bg-secondary text-center">Subtotal</h2>
-            <div class="h3 font-weight-semibold text-center py-3">${{ App\Cart_Product::where('cart_id',$cart->id)->sum('totalPrice') }}</div>
+            <h2 class="h6 px-4 py-3 bg-secondary text-center">Total price of Order</h2>
+            <div class="h3 font-weight-semibold text-center py-3">Rs. {{ number_format(App\Cart_Product::where('cart_id',$cart->id)->sum('totalPrice')) }} pkr</div>
             <hr>
             <h3 class="h6 pt-4 font-weight-semibold"><span class="badge badge-success mr-2">Note</span>Additional comments</h3>
             <textarea class="form-control mb-3" id="order-comments" rows="5"></textarea>

@@ -11,17 +11,6 @@
 @endif
 
 <div class="row">
-	<div class="col-md-6 col-sm-5 col-xs-12 appear-animation bounceInDown appear-animation-visible"
-	style="border: 5px black"
-	>
-		<div class="postrequest-leftslider text-center">
-			<h3>Hi, Buyer</h3>
-			<p>Get offers from sellers for your need</p>
-			<a href="rfq" class="btn" style="background: #3cbcff">Request For Quotation</a>
-		</div>
-	</div>
-
-
 	<div class="col-md-6 col-sm-7 col-xs-12">
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
 			<!-- Indicators -->
@@ -34,11 +23,11 @@
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner">
 				<div class="item active">
-				<img src="{{ url('assets/images/bannermain1.png') }}" alt="Los Angeles">
+				<img src="{{ url('assets/images/mainbanner1.png') }}" alt="Los Angeles">
 				</div>
 
 				<div class="item">
-				<img src="{{ url('assets/images/bannermain2.png') }}" alt="Chicago">
+				<img src="{{ url('assets/images/mainbanner2.png') }}" alt="Chicago">
 				</div>
 			</div>
 
@@ -53,6 +42,52 @@
 			</a>
 		</div>
 	</div>
+	<div class="col-md-6 col-sm-5 col-xs-12 appear-animation bounceInDown appear-animation-visible" style="border: 5px black">
+		<div class="postrequest-leftslider text-center">
+			<h3>Hi, Buyer</h3>
+			<p>Get offers from sellers for your need</p>
+			<a href="rfq" class="btn" style="background: #3cbcff">Request For Quotation</a>
+		</div>
+
+		<div class="container mt-4">
+			<div class="row">
+				<div class="col-md-4 col-lg-4 col-sm-12">
+					<section class="panel panel-featured-bottom panel-featured-secondary">
+						<div class="panel-body">
+							<div class="widget-summary text-center">
+								<div class="widget-summary-col">
+									<div class="summary">
+										<h4 class="title">Total Sellers</h4>
+										<div class="info">
+											<strong class="amount">{{ App\User::where('role','seller')->count() }}</strong>
+										</div>
+									</div>							
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+
+				<div class="col-md-4 col-lg-4 col-sm-12">
+					<section class="panel panel-featured-bottom panel-featured-secondary">
+						<div class="panel-body">
+							<div class="widget-summary text-center">
+								<div class="widget-summary-col">
+									<div class="summary">
+										<h4 class="title">Total Products</h4>
+										<div class="info">
+											<strong class="amount">{{ App\Product::count() }}</strong>
+										</div>
+									</div>							
+								</div>
+							</div>
+						</div>
+					</section>
+				</div> 
+			</div>
+		</div>
+
+	</div>
 </div>
 
 
@@ -62,94 +97,19 @@
 		<h2 class="pageheading-topseller">Top Seller <span>This week's most popular sellers</span></h2>
 	</div>
 	<div class="topseller-allproducts mb-5">
-		<div class="col-sm-6 col-md-6 col-lg-3">
-			<div class="topseller-singleproduct">
-				<div class="topseller-singleorders">
-					<span class="numberval">1</span>
-					<span class="numbercount">1 Orders</span>
+		@foreach ($sellers as $seller)
+			<div class="col-sm-6 col-md-6 col-lg-3">
+				<div class="topseller-singleproduct">
+					<div class="topseller-singleorders">
+						<span class="numberval">1</span>
+						<span class="numbercount">{{ $seller->total }} Orders</span>
+					</div>
+					<img src="" alt="">
+					<p>{{ App\User::find($seller->seller_id)->name }}</p>
+					<h4><span>From: </span>Islamabad</h4>
 				</div>
-				<img src="" alt="">
-				<p>Blue Area</p>
-				<h4><span>From: </span>Islamabad</h4>
 			</div>
-		</div>
-		<div class="col-sm-6 col-md-6 col-lg-3">
-			<div class="topseller-singleproduct">
-				<div class="topseller-singleorders">
-					<span class="numberval">1</span>
-					<span class="numbercount">1 Orders</span>
-				</div>
-				<img src="" alt="">
-				<p>Blue Area</p>
-				<h4><span>From: </span>Islamabad</h4>
-			</div>
-		</div>
-		<div class="col-sm-6 col-md-6 col-lg-3">
-			<div class="topseller-singleproduct">
-				<div class="topseller-singleorders">
-					<span class="numberval">1</span>
-					<span class="numbercount">1 Orders</span>
-				</div>
-				<img src="" alt="">
-				<p>Blue Area</p>
-				<h4><span>From: </span>Islamabad</h4>
-			</div>
-		</div>
-		<div class="col-sm-6 col-md-6 col-lg-3">
-			<div class="topseller-singleproduct">
-				<div class="topseller-singleorders">
-					<span class="numberval">1</span>
-					<span class="numbercount">1 Orders</span>
-				</div>
-				<img src="" alt="">
-				<p>Blue Area</p>
-				<h4><span>From: </span>Islamabad</h4>
-			</div>
-		</div>
-		<div class="col-sm-6 col-md-6 col-lg-3">
-			<div class="topseller-singleproduct">
-				<div class="topseller-singleorders">
-					<span class="numberval">1</span>
-					<span class="numbercount">1 Orders</span>
-				</div>
-				<img src="" alt="">
-				<p>Blue Area</p>
-				<h4><span>From: </span>Islamabad</h4>
-			</div>
-		</div>
-		<div class="col-sm-6 col-md-6 col-lg-3">
-			<div class="topseller-singleproduct">
-				<div class="topseller-singleorders">
-					<span class="numberval">1</span>
-					<span class="numbercount">1 Orders</span>
-				</div>
-				<img src="" alt="">
-				<p>Blue Area</p>
-				<h4><span>From: </span>Islamabad</h4>
-			</div>
-		</div>
-		<div class="col-sm-6 col-md-6 col-lg-3">
-			<div class="topseller-singleproduct">
-				<div class="topseller-singleorders">
-					<span class="numberval">1</span>
-					<span class="numbercount">1 Orders</span>
-				</div>
-				<img src="" alt="">
-				<p>Blue Area</p>
-				<h4><span>From: </span>Islamabad</h4>
-			</div>
-		</div>
-		<div class="col-sm-6 col-md-6 col-lg-3">
-			<div class="topseller-singleproduct">
-				<div class="topseller-singleorders">
-					<span class="numberval">1</span>
-					<span class="numbercount">1 Orders</span>
-				</div>
-				<img src="" alt="">
-				<p>Blue Area</p>
-				<h4><span>From: </span>Islamabad</h4>
-			</div>
-		</div>
+		@endforeach
 	</div>
 </div>
 

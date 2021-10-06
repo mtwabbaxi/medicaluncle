@@ -36,7 +36,7 @@
                     <form action="{{ url('products') }}" method="POST">
                         @csrf
                         <input type="text" name="searchTerm" required placeholder="Product Search"/>
-                        <button class="cv-btn"> <i class="fa fa-search"></i> search</button>
+                        <button class="cv-btn"> <i class="fa fa-search"></i></button>
                     </form>
                 </div>
             </div>
@@ -45,6 +45,14 @@
                     <ul>
                        
                         <li>
+                           
+                            @if (Auth::check())
+                                <a href="{{ url('buyer/dashboard') }}"> 
+                                    <i class="fa fa-user"></i>
+                                     {{ App\User::find(Auth::id())->name }} 
+                                </a>
+                             
+                             @else
                             <a href="javascript:void(0);" class="cv-head-user" data-toggle="modal" data-target="#loginModel">
                              <span>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14.031">
@@ -52,6 +60,8 @@
                                 </svg>
                              </span>
                              <span class="cv-head-woo-text">Register / Login</span>
+                             @endif
+                            
                           </a>
                         </li>
                         

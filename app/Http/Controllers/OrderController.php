@@ -166,6 +166,11 @@ class OrderController extends Controller
         return view('buyer.orders.pending',compact('orders'));
     }
 
+    public function completedOrders(){
+        $orders = Order::where('buyer_id',Auth::id())->where('status','Completed')->get();
+        return view('buyer.orders.completed',compact('orders'));
+    }
+
     public function pendingOrderProducts($id){
         $order = Order::find($id);
         if($order !=null || $order->buyer_id == Auth::id()){

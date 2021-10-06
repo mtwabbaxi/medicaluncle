@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Product;
 use App\User;
 use App\Catalog;
+use App\Order;
+use DB;
 use Auth;
 use Hash;
 
@@ -14,7 +16,12 @@ class CustomerController extends Controller
     public function index() {
         $products = Product::orderBy('id','DESC')->limit('8')->get();
         $catalogs = Catalog::orderBy('id','DESC')->limit('8')->get();
-        return view('buyer.index', compact('products','catalogs'));
+        $sellers = Order::groupBy('seller_id')
+                            ->select('seller_id', DB::raw('count(*) as total'))
+                            ->orderBy('total','DESC')
+                            ->get();
+
+        return view('buyer.index', compact('products','catalogs','sellers'));
     }
 
     public function products(){
@@ -29,6 +36,15 @@ class CustomerController extends Controller
         $sellers = User::where('role','seller')->get();
         return view('buyer.sellers', compact('sellers'));
     }
+
+    public function vendorDetails($id){
+        $seller = User::where('id',$id)->where('role','seller')->first();
+        $categories = Product::where('user_id',$id)->get('category_id');
+        $products = Product::where('user_id',$id)->get();
+        return view('buyer.vendor-details', compact('seller','categories','products'));
+    }
+
+
     public function profile(){
         $buyer = User::find(Auth::id());
         return view('buyer.profile',compact('buyer'));

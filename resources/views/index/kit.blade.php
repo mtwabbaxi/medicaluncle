@@ -2,7 +2,7 @@
     <div class="container">
         <div class="container">
             <div class="cv-heading">
-                <h1>Self Protection Kit</h1>
+                <h1> Covid 19 - Self Protection Kit</h1>
                 <p>Buy best self protection covid 19 all in one kit online in Pakistan at best price.</p>
             </div>
             <div class="col-12">

@@ -82,7 +82,9 @@ Route::get('buyer/dashboard','CustomerController@index')->middleware('auth','cus
 Route::get('buyer/products','CustomerController@products')->middleware('auth','customer');
 Route::get('buyer/products/{id}','ProductController@productDetail')->middleware('auth','customer');
 Route::get('buyer/catalogs','CustomerController@catalogs')->middleware('auth','customer');
+
 Route::get('buyer/vendors-lists','CustomerController@vendorLists')->middleware('auth','customer');
+Route::get('buyer/vendors/{id}','CustomerController@vendorDetails')->middleware('auth','customer');
 
 Route::get('buyer/profile','CustomerController@profile')->middleware('auth','customer');
 Route::post('buyer/profile','CustomerController@insertProfile')->middleware('auth','customer');
@@ -97,3 +99,5 @@ Route::post('buyer/order/confirm','OrderController@confirmOrder')->middleware('a
 
 Route::get('buyer/pending-orders','OrderController@pendingOrders')->middleware('auth','customer');
 Route::get('buyer/pending-orders/{orderNumber}/products','OrderController@pendingOrderProducts')->middleware('auth','customer');
+
+Route::get('buyer/completed-orders','OrderController@completedOrders')->middleware('auth','customer');

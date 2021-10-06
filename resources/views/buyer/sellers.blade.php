@@ -19,7 +19,7 @@
                         </div>
                     </div>
                     <div class="summary-footer">
-                        <a href="" class="text-muted text-uppercase">View Detail</a>
+                        <a href="{{ url('buyer/vendors/'.$seller->id) }}" class="text-muted text-uppercase">View Detail</a>
                     </div>
                 </div>
             </div>

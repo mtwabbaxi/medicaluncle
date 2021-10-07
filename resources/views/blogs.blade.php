@@ -25,7 +25,8 @@
             <div class="col-lg-8">
                 <div class="cv-blog-page-box">
                     <div class="row">
-                        <div class="col-md-6">
+
+                        {{-- <div class="col-md-6">
                             <div class="cv-blog-box">
                                 <div class="cv-blog-img">
                                     <img src="https://via.placeholder.com/350x250" alt="image" class="img-fluid"/>
@@ -37,6 +38,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-md-6">
                             <div class="cv-blog-box">
                                 <div class="cv-blog-img">
@@ -48,11 +50,12 @@
                                     <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4">
+
+            {{-- <div class="col-lg-4">
                 <div class="cv-blog-sidebar">
                     <div class="cv-widget cv-search">
                         <h2 class="cv-sidebar-title">Search</h2>
@@ -63,7 +66,7 @@
                     </div>
                     
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>

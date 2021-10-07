@@ -7,12 +7,12 @@
         <li>
             <a href="{{ url('buyer/pending-orders') }}">
                 Pending Orders
-                <span class="badge badge-warning"> 
-                   <?php $count = App\Order::where('buyer_id',Auth::id())->where('status','OrderPlaced')->count() ; ?> 
-                   @if ($count > 0)
-                       new
-                   @endif
-                </span>
+               
+                   <?php $count = App\Order::where('buyer_id',Auth::id())->where('status','OrderPlaced')->select('order_no')->distinct()->count() ; ?> 
+                   
+                   <span class="badge badge-warning"> {{$count}}</span>
+                  
+                
             </a>
         </li>
         <li>

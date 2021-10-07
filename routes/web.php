@@ -80,6 +80,12 @@ Route::get('admin/products/category/add','ProductController@addCategory')->middl
 Route::post('admin/products/category/add','ProductController@insertCategory')->middleware('auth','admin');
 Route::get('admin/products/category/delete/{id}','ProductController@deleteCategory')->middleware('auth','admin');
 
+Route::get('admin/blogs', 'AdminController@blogs')->middleware('auth','admin');
+Route::get('admin/blogs/add', 'AdminController@addBlog')->middleware('auth','admin');
+Route::post('admin/blogs/add', 'AdminController@insertBlog')->middleware('auth','admin');
+Route::get('admin/blogs/view/{id}', 'AdminController@viewBlog')->middleware('auth','admin');
+Route::get('admin/blogs/delete/{id}', 'AdminController@deleteBlog')->middleware('auth','admin');
+
 // Buyer Routes
 
 Route::get('buyer/dashboard','CustomerController@index')->middleware('auth','customer');

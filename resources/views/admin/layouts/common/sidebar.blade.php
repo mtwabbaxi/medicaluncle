@@ -54,4 +54,11 @@ href="{{ url('/home') }}"
   >
 </li>
 
+<li class="nav-item">
+  <a class="nav-link" href="{{ url('admin/blogs') }}">
+    <i class="fas fa-fw fa-blog"></i>
+    <span>Blogs</span></a
+  >
+</li>
+
 </ul>

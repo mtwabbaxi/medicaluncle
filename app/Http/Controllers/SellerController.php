@@ -35,34 +35,6 @@ class SellerController extends Controller
         } 
     }
 
-    // public function markAsDeleivered($orderId, $prodID){
-    //     $order = Order::find($orderId);
-    //     if($order !=null && $order->seller_id == Auth::id()){
-    //         $orderNumber = $order->order_no;
-    //         $product = Order_Product::where('order_no',$orderNumber)
-    //                                     ->where('seller_id',Auth::id())
-    //                                     ->where('product_id',$prodID)
-    //                                     ->where('status','Pending')
-    //                                     ->first();
-    //         $product->status = 'Delivered';
-    //         $product->save();
-
-    //         // Check more items
-    //         $products = Order_Product::where('order_no',$orderNumber)
-    //                                     ->where('seller_id',Auth::id())
-    //                                     ->where('status','Pending')
-    //                                     ->get();
-    //         if($products->isEmpty()){
-    //             $order->status = 'Completed';
-    //             $order->save();
-    //         }
-
-    //         return redirect()->back()->with('msg','Successfully Marked as Delivered');
-    //     }else {
-    //         return redirect()->back()->with('msg','You dont have this order');
-    //     } 
-    // }
-
     public function markAsSent($orderId, $prodID){
         $order = Order::find($orderId);
         if($order !=null && $order->seller_id == Auth::id()){

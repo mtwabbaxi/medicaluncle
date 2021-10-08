@@ -9,6 +9,7 @@ use App\Category;
 use App\Catalog; 
 use App\Order; 
 use App\Order_Product; 
+use App\Contact; 
 use Auth;
 use Hash;
 
@@ -152,6 +153,11 @@ class AdminController extends Controller
 
     public function deleteBlog(){
         return view('admin.blogs.index');
+    }
+
+    public function contacts(){
+        $contacts = Contact::orderBy('id','DESC')->get();
+        return view('admin.contacts',compact('contacts'));
     }
 
 

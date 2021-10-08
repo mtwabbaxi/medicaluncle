@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use App\Contact;
 
 class IndexController extends Controller
 {
@@ -34,6 +35,27 @@ class IndexController extends Controller
 
     public function contact(){
         return view('contact');
+    }
+
+    
+    public function postContact(Request $req){
+
+        $req->validate([
+            'name' => 'required|max:255',
+            'email' => 'required',
+            'message' => 'required',
+        ]);
+
+        if($req->name != null && $req->email != null && $req->message != null){
+            $contact = new Contact;
+            $contact->name = $req->name;
+            $contact->email = $req->email;
+            $contact->message = $req->message;
+            $contact->save();
+            return redirect()->back()->with('msg','Your message has been sent successfully!')->with('msgType','info');
+        } else {
+            return redirect()->back()->with('msg','Please, fill all form fields!')->with('msgType','error');
+        }
     }
 
     public function blogs(){

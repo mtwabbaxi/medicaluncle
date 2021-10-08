@@ -86,16 +86,31 @@
                 </div>
             </div>
             <div class="col-lg-8">
+                @if (session('msg'))
+                   <center> <span class="alert alert-{{session('msgType')}}">{{ session('msg') }}</span></center>
+                @endif
                 <div class="cv-contact-form">
                     <h2 class="cv-sidebar-title">Get a quote</h2>
-                    <form>
-                        <input type="text" placeholder="Enater your name" name="full_name" id="full_name" class="require"/>
+                    <form action="{{ url('contact') }}" method="POST">
+                        @csrf
+                        <input type="text" placeholder="Enater your name" name="name" id="full_name" class="require"/>
                         <input type="text"  placeholder="Enter your email" name="email" id="email" class="require" data-valid="email" data-error="Email should be valid."/>
                         <textarea placeholder="Message here" name="message" id="message" class="require"></textarea>
-                        <button type="button" class="cv-btn submitForm">submit</button>
+                        <button type="submit" class="cv-btn submitForm">submit</button>
                         <div class="response"></div>
                     </form>
                 </div>
+
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
             </div>
         </div>
     </div>

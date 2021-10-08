@@ -18,6 +18,8 @@ Route::get('about','IndexController@about');
 Route::get('contact','IndexController@contact');
 Route::get('blogs','IndexController@blogs');
 Route::get('blog/{id}','IndexController@blogDetail');
+Route::post('contact','IndexController@postContact');
+
 
 // seller routes
 
@@ -69,6 +71,8 @@ Route::get('admin/catalogs', 'AdminController@catalogs')->middleware('auth','adm
 Route::get('admin/catalogs/add', 'AdminController@addCatalog')->middleware('auth','admin');
 
 Route::get('admin/buyers', 'AdminController@buyers')->middleware('auth','admin');
+
+Route::get('admin/contacts','AdminController@contacts')->middleware('auth','admin');
 
 Route::get('admin/orders', 'AdminController@orders')->middleware('auth','admin');
 Route::get('admin/orders/{status}', 'AdminController@statusOrders')->middleware('auth','admin');

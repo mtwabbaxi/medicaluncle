@@ -61,4 +61,11 @@ href="{{ url('/home') }}"
   >
 </li>
 
+<li class="nav-item">
+  <a class="nav-link" href="{{ url('admin/contacts') }}">
+    <i class="fas fa-fw fa-address-book"></i>
+    <span>Contacts</span></a
+  >
+</li>
+
 </ul>

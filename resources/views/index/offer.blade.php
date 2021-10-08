@@ -2,7 +2,7 @@
     <div class="container">
         <div class="cv-heading">
             <h1>New Notifications</h1>
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip consequat.</p>
+            {{-- <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip consequat.</p> --}}
         </div>
         <div class="col-12">
             <span class="seperator"></span>

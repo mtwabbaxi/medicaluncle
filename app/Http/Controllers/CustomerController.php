@@ -69,4 +69,16 @@ class CustomerController extends Controller
         $buyer->save();
         return redirect()->back()->with('msg','Successfully Updated');
     }
+
+    
+    public function searchProduct(Request $req){
+        $searchTerm = $req->searchTerm;
+        if($searchTerm != null){
+            $products = Product::Where('name', 'like', '%' . $searchTerm . '%')->get();
+            return view('buyer.products.index',compact('products'));
+        } else {
+            return redirect()->back()->with('msg','Please add search term');
+        }
+    }
+    
 }

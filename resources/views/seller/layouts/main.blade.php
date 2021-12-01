@@ -17,7 +17,7 @@
 			@include('seller.layouts.common.header')
 			<div class="inner-wrapper" style="padding-top: 90px !important;">
 				@include('seller.layouts.common.sidebar')
-				@include('seller.layouts.common.navbar');
+				@include('seller.layouts.common.navbar')
 					<section role="main" class="content-body">
                         @yield('content')
 					</section>

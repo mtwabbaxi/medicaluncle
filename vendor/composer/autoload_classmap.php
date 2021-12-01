@@ -6,6 +6,9 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Bid' => $baseDir . '/app/Bid.php',
+    'App\\Bid_product' => $baseDir . '/app/Bid_product.php',
+    'App\\Buyer_rfq' => $baseDir . '/app/Buyer_rfq.php',
     'App\\Cart' => $baseDir . '/app/Cart.php',
     'App\\Cart_Product' => $baseDir . '/app/Cart_Product.php',
     'App\\Catalog' => $baseDir . '/app/Catalog.php',
@@ -26,6 +29,7 @@ return array(
     'App\\Http\\Controllers\\IndexController' => $baseDir . '/app/Http/Controllers/IndexController.php',
     'App\\Http\\Controllers\\OrderController' => $baseDir . '/app/Http/Controllers/OrderController.php',
     'App\\Http\\Controllers\\ProductController' => $baseDir . '/app/Http/Controllers/ProductController.php',
+    'App\\Http\\Controllers\\QuotationController' => $baseDir . '/app/Http/Controllers/QuotationController.php',
     'App\\Http\\Controllers\\SellerController' => $baseDir . '/app/Http/Controllers/SellerController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',

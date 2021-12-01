@@ -45,8 +45,6 @@ Route::get('seller/catalogs/add','CatalogController@add')->middleware('auth','se
 Route::post('seller/catalogs/add','CatalogController@insert')->middleware('auth','seller');
 Route::get('seller/catalogs/delete/{id}','CatalogController@delete')->middleware('auth','seller');
 
-Route::get('seller/buyer-requests','SellerController@buyerRequests')->middleware('auth','seller');
-
 Route::get('seller/pending-orders','SellerController@pendingOrders')->middleware('auth');
 Route::get('seller/pending-orders/{id}/products','SellerController@pendingOrderProducts')->middleware('auth','seller');
 Route::post('seller/pending-orders/{id}/{prod}/deliever','SellerController@markAsSent')->middleware('auth','seller');
@@ -55,6 +53,8 @@ Route::get('seller/complete-orders','SellerController@completedOrders')->middlew
 Route::get('seller/complete-orders/{id}/products','SellerController@completedOrderProducts')->middleware('auth','seller');
 
 Route::get('seller/history','SellerController@history')->middleware('auth','seller');
+
+
 
 // Admin Routes
 
@@ -95,6 +95,7 @@ Route::get('admin/blogs/delete/{id}', 'AdminController@deleteBlog')->middleware(
 Route::get('buyer/dashboard','CustomerController@index')->middleware('auth','customer');
 Route::get('buyer/products','CustomerController@products')->middleware('auth','customer');
 Route::get('buyer/products/{id}','ProductController@productDetail')->middleware('auth','customer');
+Route::post('buyer/search-products','CustomerController@searchProduct')->middleware('auth','customer');
 Route::get('buyer/catalogs','CustomerController@catalogs')->middleware('auth','customer');
 
 Route::get('buyer/vendors-lists','CustomerController@vendorLists')->middleware('auth','customer');
@@ -115,3 +116,17 @@ Route::get('buyer/pending-orders','OrderController@pendingOrders')->middleware('
 Route::get('buyer/pending-orders/{orderNumber}/products','OrderController@pendingOrderProducts')->middleware('auth','customer');
 
 Route::get('buyer/completed-orders','OrderController@completedOrders')->middleware('auth','customer');
+
+// Custom Procurement
+
+Route::get('buyer/rfq','QuotationController@rfq')->middleware('auth','customer');
+Route::post('buyer/rfq','QuotationController@submitRFQ')->middleware('auth','customer');
+Route::get('buyer/vendor-requests','QuotationController@vendorRequests')->middleware('auth','customer');
+Route::get('buyer/vendor-requests/{id}','QuotationController@viewRequests')->middleware('auth','customer');
+
+
+Route::get('seller/buyer-requests','QuotationController@buyerRequests')->middleware('auth','seller');
+Route::get('seller/response-requests/{id}','QuotationController@responseRequest')->middleware('auth','seller');
+Route::get('seller/view-quotation/{id}','QuotationController@viewQuotation')->middleware('auth','seller');
+Route::post('seller/view-quotation/{id}','QuotationController@submitQuotation')->middleware('auth','seller');
+Route::post('seller/response-requests/addProduct/{bidId}/{productId}','QuotationController@addRequestProduct')->middleware('auth','seller');

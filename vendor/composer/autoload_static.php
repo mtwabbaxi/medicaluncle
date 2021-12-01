@@ -389,6 +389,9 @@ class ComposerStaticInitfd3f2edabfa2b95ab592dfa74f584e59
     );
 
     public static $classMap = array (
+        'App\\Bid' => __DIR__ . '/../..' . '/app/Bid.php',
+        'App\\Bid_product' => __DIR__ . '/../..' . '/app/Bid_product.php',
+        'App\\Buyer_rfq' => __DIR__ . '/../..' . '/app/Buyer_rfq.php',
         'App\\Cart' => __DIR__ . '/../..' . '/app/Cart.php',
         'App\\Cart_Product' => __DIR__ . '/../..' . '/app/Cart_Product.php',
         'App\\Catalog' => __DIR__ . '/../..' . '/app/Catalog.php',
@@ -409,6 +412,7 @@ class ComposerStaticInitfd3f2edabfa2b95ab592dfa74f584e59
         'App\\Http\\Controllers\\IndexController' => __DIR__ . '/../..' . '/app/Http/Controllers/IndexController.php',
         'App\\Http\\Controllers\\OrderController' => __DIR__ . '/../..' . '/app/Http/Controllers/OrderController.php',
         'App\\Http\\Controllers\\ProductController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProductController.php',
+        'App\\Http\\Controllers\\QuotationController' => __DIR__ . '/../..' . '/app/Http/Controllers/QuotationController.php',
         'App\\Http\\Controllers\\SellerController' => __DIR__ . '/../..' . '/app/Http/Controllers/SellerController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',

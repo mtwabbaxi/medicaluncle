@@ -23,8 +23,8 @@
                 </span> 
             </a>
         </li>
-        <li><a href="{{ url('buyer/dashboard') }}">RFQ</a></li>
-        <li><a href="{{ url('buyer/dashboard') }}">Vendor Requests</a></li>
+        <li><a href="{{ url('buyer/rfq') }}">RFQ</a></li>
+        <li><a href="{{ url('buyer/vendor-requests') }}">Vendor Requests</a></li>
         <li><a href="{{ url('buyer/dashboard') }}">History</a></li>
     </ul>
 </div>

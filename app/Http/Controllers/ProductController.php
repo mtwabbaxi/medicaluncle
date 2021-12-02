@@ -130,8 +130,32 @@ class ProductController extends Controller
 
     public function productDetail($id){
         $product = Product::find($id);
+        $similarProducts = null;
         if($product){
-            return view('buyer.products.detail',compact('product'));
+            $name = $product->name;
+            $names = explode(" ", $name);
+            if(count($names) == 2){
+                $similarProducts = Product::where('name', 'like', '%' . $names[0] . '%')
+                                        ->orWhere('name', 'like', '%' . $names[1] . '%')
+                                        ->orWhere('excerpt', 'like', '%' . $names[1] . '%')
+                                        ->orWhere('excerpt', 'like', '%' . $names[1] . '%')
+                                        ->get();
+                return view('buyer.products.detail',compact('product','similarProducts'));
+            }
+            if(count($names) == 3){
+                $similarProducts = Product::where('name', 'like', '%' . $names[0] . '%')
+                                        ->orWhere('name', 'like', '%' . $names[1] . '%')
+                                        ->orWhere('name', 'like', '%' . $names[2] . '%')
+                                        ->orWhere('excerpt', 'like', '%' . $names[1] . '%')
+                                        ->orWhere('excerpt', 'like', '%' . $names[1] . '%')
+                                        ->orWhere('excerpt', 'like', '%' . $names[2] . '%')
+                                        ->get();
+                return view('buyer.products.detail',compact('product','similarProducts'));
+            }
+            $similarProducts = Product::where('name', 'like', '%' . $names[0] . '%')->get();
+            return view('buyer.products.detail',compact('product','similarProducts'));
+        } else {
+            return redirect()->back()->with('msg','Product not found');
         }
     }
 

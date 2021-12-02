@@ -1,8 +1,8 @@
-@extends('seller.layouts.main')
+@extends('buyer.layouts.main')
 @section('content')
 <div style="margin-bottom: 40px">
     <center><h1 class="h3 mb-2 text-gray-800 display-5" style="font-weight: bold;">
-        {{ App\User::find($bid->seller_id)->name }} 's Quotation 
+        {{ $seller->name }} 's Quotation 
     </h1> </center>
     <hr>
 </div>
@@ -10,7 +10,7 @@
 <center>
     <div class="container mb-4">
         <div class="row">
-                <div class="col-md-3">Buyer Name:</div>
+                <div class="col-md-3">Seller Name:</div>
                 <div class="col-md-3">Email</div>
                 <div class="col-md-3">Request No</div>
                 <div class="col-md-3">City</div>
@@ -18,11 +18,10 @@
                 
         </div>
         <div class="row">
-                <div class="col-md-3"><b>{{ $buyer->name }}</b></div>
-                <div class="col-md-3"><b>{{ $buyer->email }}</b></div>
+                <div class="col-md-3"><b>{{ $seller->name }}</b></div>
+                <div class="col-md-3"><b>{{ $seller->email }}</b></div>
                 <div class="col-md-3"><b>{{ $rfq->rfq_no }}</b></div>
                 <div class="col-md-3"><b>{{ $rfq->city }}</b></div>
-                
         </div>
 
 
@@ -44,9 +43,6 @@
                     <th>Name</th>
                     <th>Category</th>
                     <th>Price</th>
-                    @if ($bid->status == 0)
-                    <th>Action</th>
-                    @endif
                 </tr>
             </thead>
             <tbody>
@@ -60,16 +56,6 @@
                         <td>{{ $prod->name }}</td>
                         <td>{{ App\Category::find($prod->category_id)->name }}</td>
                         <td>{{ $product->product_price }}</td>
-                        @if ($bid->status == 0)
-                        <td>
-                           
-                           <a href="{{ url('seller/view-quotation/delete-product/'.$product->id) }}" class="btn btn-danger"
-                            onclick="return confirm('Are you sure you want to delete?');" 
-                            >
-                            <i class="fa fa-trash"></i> Delete
-                        </a>
-                    </td>
-                    @endif
                     </tr>
                 @endforeach
             </tbody>

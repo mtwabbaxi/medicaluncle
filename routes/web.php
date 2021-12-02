@@ -123,10 +123,15 @@ Route::get('buyer/rfq','QuotationController@rfq')->middleware('auth','customer')
 Route::post('buyer/rfq','QuotationController@submitRFQ')->middleware('auth','customer');
 Route::get('buyer/vendor-requests','QuotationController@vendorRequests')->middleware('auth','customer');
 Route::get('buyer/vendor-requests/{id}','QuotationController@viewRequests')->middleware('auth','customer');
+Route::get('buyer/view-quotation/{id}','QuotationController@viewBuyerQuotation')->middleware('auth','customer');
+Route::get('buyer/view-products/{id}','QuotationController@viewBidProducts')->middleware('auth','customer');
+Route::post('buyer/vendor-requests/add-to-cart/{prodID}/{bidID}','QuotationController@addToCart')->middleware('auth','customer');
+Route::get('buyer/request/expire/{id}','QuotationController@markAsExpire')->middleware('auth','customer');
 
 
 Route::get('seller/buyer-requests','QuotationController@buyerRequests')->middleware('auth','seller');
 Route::get('seller/response-requests/{id}','QuotationController@responseRequest')->middleware('auth','seller');
 Route::get('seller/view-quotation/{id}','QuotationController@viewQuotation')->middleware('auth','seller');
 Route::post('seller/view-quotation/{id}','QuotationController@submitQuotation')->middleware('auth','seller');
+Route::get('seller/view-quotation/delete-product/{id}','QuotationController@deleteProduct')->middleware('auth','seller');
 Route::post('seller/response-requests/addProduct/{bidId}/{productId}','QuotationController@addRequestProduct')->middleware('auth','seller');

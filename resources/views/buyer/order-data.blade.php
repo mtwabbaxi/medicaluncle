@@ -107,7 +107,7 @@
                                     </a>
                                     <div class="media-body pt-3">
                                         <h3 class="product-card-title font-weight-semibold border-0 pb-0"><a href="#"> {{ $p->name }} </a></h3>
-                                        Per item Price <div class="font-size-lg text-primary pt-2">   Rs. {{ $p->price }} pkr</div>
+                                        Per item Price <div class="font-size-lg text-primary pt-2">   Rs. {{ $product->product_price }} pkr</div>
                                     </div>
                                 </div>
                             </div>

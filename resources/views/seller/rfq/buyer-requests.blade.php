@@ -23,7 +23,15 @@
                     <div class="col-3">
                         <a href="{{ url('seller/view-quotation/'.$rfq->id) }}" class="btn btn-success"><i class="fa fa-eye"> View Quotation</i></a>
 
-                        @if (App\Bid::where('request_id',$rfq->id)->where('seller_id',auth::id())->first()->status == 0)
+                        <?php 
+                            $checkBidStatus = App\Bid::where('request_id',$rfq->id)->where('seller_id',auth::id())->first();
+                            $status = 0;
+                            if($checkBidStatus != null){
+                                $status = $checkBidStatus->status;
+                            }
+                        ?>
+
+                        @if ($status == 0)
                         <a href="{{ url('seller/response-requests/'.$rfq->id) }}" 
                             onclick="return confirm('Are you sure you want to continue?');"  
                             class="btn btn-primary">Send Response</a>

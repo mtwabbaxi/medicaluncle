@@ -12,7 +12,7 @@
 		@include('buyer.layouts.common.css')
 		@include('layouts.css')
 	</head>
-	<body >
+	<body>
 		<section class="body">
 			@include('buyer.layouts.common.header')
 			<div class="inner-wrapper" style="padding-top: 90px !important;">

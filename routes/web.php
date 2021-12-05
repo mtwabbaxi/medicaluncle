@@ -117,6 +117,10 @@ Route::get('buyer/pending-orders/{orderNumber}/products','OrderController@pendin
 
 Route::get('buyer/completed-orders','OrderController@completedOrders')->middleware('auth','customer');
 
+Route::get('buyer/b2bproducts','ProductController@b2bproducts')->middleware('auth','customer');
+Route::get('buyer/track-order','OrderController@trackOrder')->middleware('auth','customer');
+Route::post('buyer/track-order','OrderController@trackOrderSeriously')->middleware('auth','customer');
+
 // Custom Procurement
 
 Route::get('buyer/rfq','QuotationController@rfq')->middleware('auth','customer');

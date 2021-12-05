@@ -162,7 +162,7 @@ class OrderController extends Controller
     }
 
     public function pendingOrders(){
-        $orders = Order::where('buyer_id',Auth::id())->where('status','OrderPlaced')->get();
+        $orders = Order::where('buyer_id',Auth::id())->where('status','OrderPlaced')->orderBy('id','DESC')->get();
         return view('buyer.orders.pending',compact('orders'));
     }
 
@@ -178,7 +178,27 @@ class OrderController extends Controller
             $products = Order_Product::where('order_no',$orderNumber)->get();
             return view('buyer.orders.products',compact('products','order'));
         }else {
-            return redirect()->back()->with('msg','You done have this order');
+            return redirect()->back()->with('msg','You dont have this order');
         }
+    }
+
+    public function trackOrder(){
+        $order = null;
+        return view('buyer.orders.track',compact('order'));
+    }
+
+    public function trackOrderSeriously(Request $req){
+        $req->validate([
+            'order_no'=> 'required'
+        ]);
+
+        $order = Order::where('order_no', $req->order_no)->first();
+        if($order != null){
+            $products = Order_Product::where('order_no',$req->order_no)->get();
+            return view('buyer.orders.track', compact('order','products'));
+        } else {
+            return redirect()->back()->with('msg','You dont have this order');
+        }
+
     }
 }

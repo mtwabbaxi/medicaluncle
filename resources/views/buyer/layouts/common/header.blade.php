@@ -3,6 +3,11 @@
 		<a href="{{ url('buyer/dashboard') }}" class="logo">
 			<img src="{{ url('nassets/images/logo.png') }}" height="35" alt="Medical Uncle" />
 		</a>
+
+		<div class="headersubmitlink">
+			<a href="{{ url('buyer/track-order') }}">Track your Order</a>
+			<a href="{{ url('buyer/b2bproducts') }}">B2B Products</a>
+		</div>
 		
 
 		<div class="visible-xs toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">

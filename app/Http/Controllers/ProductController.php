@@ -159,5 +159,15 @@ class ProductController extends Controller
         }
     }
 
+    public function b2bproducts(){
+        $category = Category::where('name','B2B Products')->first();
+        if($category != null){
+            $products = Product::where('category_id',$category->id)->get();
+            return view('buyer.products.b2b',compact('products'));
+        } else {
+            return redirect()->back()->with('msg','B2B not found!');
+        }
+    }
+
     
 }

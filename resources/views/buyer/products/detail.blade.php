@@ -20,10 +20,10 @@
                 </div>
                 <div class="col-lg-6 order-3">
                     <div class="product_description">
-                        
-                        <div class="product_name"> {{ $product->name }} </div>
+                        <div class="product_name"> {{ $product->name }}  </div>
                         <div class="product-rating">
-                            <span class="badge badge-success"> {{ App\Category::find($product->category_id)->name }} </span> </div>
+                            <span class="badge badge-success"> {{ App\Category::find($product->category_id)->name }} </span> </div> <br>
+                            Rating: <b>{{ $rating }} <span class="fa fa-star checked" style="color: #f44336"></span></b>
                         <div> <span class="product_price">Rs. {{ $product->price }} PKR</span></div>
                         <hr class="singleline">
                         <div> {{ $product->description }}</div>
@@ -41,6 +41,26 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <hr>
+    <div style="margin-top: 25px">
+        <h4> <b>Reviews</b> </h4><hr>
+        <div class="row">
+            @foreach ($reviews as $review)
+                <div class="col-md-12 col-lg-12 col-sm-12">
+                    <div class="card" style="width: 18rem;height:80px">
+                        <div class="card-body">
+                            <h6 class="card-text"> {{ App\User::find($review->buyer_id)->name }} - 
+                                <b>{{ $review->rating }} <span class="fa fa-star checked" style="color: #f44336"></span></b> 
+                            </h6> 
+                            <p>{{ $review->review }}</p>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    
     </div>
 
     <hr>

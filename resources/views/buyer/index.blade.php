@@ -118,12 +118,16 @@
 		<h2 class="pageheading-topseller">Featured Used Products<span>For all your needs</span></h2>
 		@foreach ($products as $product)
 		<div class="col-md-4 col-lg-3 col-sm-6">
-			<div class="card" style="width: 18rem;height: 325px;border:2px solid rgba(0,0,0,.125) !important">
+			<div class="card" style="width: 18rem;height: 350px;border:2px solid rgba(0,0,0,.125) !important">
 				<img class="card-img-top product-listimg" src="{{ asset('storage/'.$product->image) }}" alt="{{ $product->name }}"  /> 
 				<div class="card-body">
 					<a href="{{ url('buyer/products/'.$product->id) }}">
 						<h5 class="card-title" style="min-height: 60px;font-weight:bold;min-height:auto !important;"> {{ $product->name }} </h5>
 					</a>
+					<span class="ffrating">
+						{{ round(App\Review::where('product_id',$product->id)->where('seller_id',$product->user_id)->avg('rating'),1)}} 
+						<span class="fa fa-star checked" style="color: #f44336"></span>
+					</span>
 					<h6 class="card-text" style="font-size:10px; min-height:45px">{{ App\User::find($product->user_id)->name }}</h6>
 					<h6 class="card-text" style="font-style: italic; font-size:10px">{{ App\Category::find($product->category_id)->name }}</h6>
 					<p class="card-text priceTag">₨.{{ number_format($product->price) }} </p>

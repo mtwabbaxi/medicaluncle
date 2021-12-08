@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Contact;
+use App\Blog;
 
 class IndexController extends Controller
 {
@@ -59,10 +60,12 @@ class IndexController extends Controller
     }
 
     public function blogs(){
-        return view('blogs');
+        $blogs = Blog::orderBy('id','DESC')->get();;
+        return view('blogs',compact('blogs'));
     }
 
-    public function blogDetail(){
-        return view('blog-single');
+    public function blogDetail($id){
+        $blog = Blog::find($id);
+        return view('blog-single',compact('blog'));
     }
 }

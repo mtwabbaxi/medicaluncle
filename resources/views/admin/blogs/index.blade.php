@@ -25,13 +25,19 @@
                     </tr>
                   </thead>
                   <tbody>
+                    <?php $i=0; ?>
+                  @foreach ($blogs as $blog)
+                  <?php $i++; ?>
                   <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>{{ $i }}</td>
+                      <td><img src="{{ url('storage/'.$blog->image) }}" height="50" width="50" alt=""></td>
+                      <td>{{ $blog->title }}</td>
+                      <td>{{ $blog->excerpt }}</td>
+                      <td>
+                        <a href="{{ url('admin/blogs/delete/'.$blog->id) }}" class="btn btn-danger">Delete</a>
+                      </td>
                   </tr>
+                  @endforeach
                   </tbody>
                 </table>
               </div>

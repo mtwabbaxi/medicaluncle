@@ -18,6 +18,14 @@
 </style>
 
 <div class="container">
+    @if (session('msg'))
+       <div class="row">
+            <div class="col-md-6 offset-6 mb-4">
+                <span class="alert alert-danger">{{ session('msg') }}</span>
+            </div>
+       </div>
+    @endif
+   
     <div class="row">
         <div class="col-md-4">
             <div class="col-lg-12 mx-auto">
@@ -75,6 +83,9 @@
                                 </div>
                                 <div class="d-flex align-items-center justify-content-between mt-1">
                                     <h2> <span class="badge badge-pill badge-warning" style="padding: 11px 16px; font-size:20px"> {{ $product->status }} </span></h2>
+                               </div>
+                               <div>
+                                   <a href="{{url('buyer/order/review/'.$order->id.'/'.$product->product_id) }}" class="btn btn-success">Write a Review</a>
                                </div>
                             </div><img id="productImageShow" src="{{ url('storage/'.App\Product::find($product->product_id)->image) }}" 
                             alt="Generic placeholder image" width="200" class="ml-lg-5 order-1 order-lg-2">

@@ -22,6 +22,7 @@
 <div class="cv-blog-page spacer-top spacer-bottom">
     <div class="container">
         <div class="row">
+            @foreach ($blogs as $blog)
             <div class="col-lg-8">
                 <div class="cv-blog-page-box">
                     <div class="row">
@@ -29,22 +30,22 @@
                         <div class="col-md-6">
                             <div class="cv-blog-box">
                                 <div class="cv-blog-img">
-                                    <img src="https://via.placeholder.com/350x250" alt="image" class="img-fluid"/>
+                                    <img src="{{ url('storage/'.$blog->image) }}" height="350" width="250" alt="image" class="img-fluid"/>
                                 </div>
                                 <div class="cv-blog-data">
-                                    <a href="javascript:;" class="cv-blog-date">25 May 2020</a>
-                                    <a href="{{ url('blog/1') }}" class="cv-blog-title">Quis nostrud exercitation ullamco</a>
-                                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                    <a href="javascript:;" class="cv-blog-date">{{ date('d/m/Y', strtotime($blog->created_at)) }}</a>
+                                    <a href="{{ url('blog/'.$blog->id) }}" class="cv-blog-title">{{ $blog->title }}</a>
+                                    <p>{{ $blog->excerpt }}.</p>
                                 </div>
                             </div>
-                        </div>
-
-                        
+                        </div> 
                     </div>
                 </div>
             </div>
+            @endforeach
+           
 
-            <div class="col-lg-4">
+            {{-- <div class="col-lg-4">
                 <div class="cv-blog-sidebar">
                     <div class="cv-widget cv-search">
                         <h2 class="cv-sidebar-title">Search</h2>
@@ -55,7 +56,7 @@
                     </div>
                     
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>

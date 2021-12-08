@@ -9,6 +9,7 @@ use App\Order;
 use App\Order_Product;
 use App\Product;
 use App\User;
+use App\Review;
 use Auth;
 
 class OrderController extends Controller
@@ -200,5 +201,63 @@ class OrderController extends Controller
             return redirect()->back()->with('msg','You dont have this order');
         }
 
+    }
+
+    public function writeReview($orderId, $productId){
+        if($orderId ==null || $productId==null){
+            return redirect()->back()->with('msg','Error Occurred!');
+        }
+        $order = Order::find($orderId);
+        if($order != null && $order->status == 'Completed'){
+            $order_product = Order_Product::where('order_no',$order->order_no)->where('product_id',$productId)->first();
+            if($order_product != null){
+                $product = Product::find($productId);
+                return view('buyer.orders.review', compact('order','product')); 
+            } else {
+                return redirect()->back()->with('msg','This order doesnt contain this product!');
+            }
+        } else {
+            return redirect()->back()->with('msg','Order not complete yet!');
+        }
+    }
+
+    public function submitReview(Request $req,$orderId, $productId){
+        $req->validate([
+            'rating'=>'required',
+            'review'=>'required',
+        ]);
+
+       
+        $buyer_id=null;
+        $seller_id=null;
+        $order = Order::find($orderId);
+        if($order != null){
+            $seller_id = $order->seller_id;
+            $buyer_id = $order->buyer_id;
+        } else {
+            return redirect()->back()->with('msg','Order not complete yet!');
+        }
+
+         // already check
+         $check = Review::where('order_id',$orderId)
+                        ->where('product_id',$productId)
+                        ->where('seller_id',$seller_id)
+                        ->where('buyer_id',$buyer_id)
+                        ->first();
+        if($check != null){
+            return redirect()->back()->with('msg','Already reviewed!');
+        }
+
+        $review = new Review;
+        $review->order_id = $orderId;
+        $review->product_id = $productId;
+        $review->seller_id = $seller_id;
+        $review->buyer_id = $buyer_id;
+        $review->rating = $req->rating;
+        $review->review = $req->review;
+        $review->save();
+        return redirect()->back()->with('msg','Review Submitted!');
+
+        return $req->rating;
     }
 }

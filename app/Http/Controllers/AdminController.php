@@ -10,6 +10,7 @@ use App\Catalog;
 use App\Order; 
 use App\Order_Product; 
 use App\Contact; 
+use App\Blog; 
 use Auth;
 use Hash;
 
@@ -135,7 +136,8 @@ class AdminController extends Controller
     }
 
     public function blogs(){
-        return view('admin.blogs.index');
+        $blogs = Blog::orderBy('id','DESC')->get();;
+        return view('admin.blogs.index',compact('blogs'));
     }
 
     
@@ -143,16 +145,39 @@ class AdminController extends Controller
         return view('admin.blogs.add');
     }
 
-    public function insertBlog(){
-        return view('admin.blogs.index');
+    public function insertBlog(Request $req){
+        $req->validate([
+            'title'=> 'required',
+            'excerpt'=> 'required',
+            'description'=> 'required',
+            'image' => 'required|mimes:jpg,jpeg,png|max:4096',
+        ]);
+
+        $blog = new Blog;
+        $blog->title = $req->title;
+        $blog->excerpt = $req->excerpt;
+        $blog->description = $req->description;
+
+        $filename = $req->file('image')->getClientOriginalName();
+        $genID = substr(sha1(time()), 0, 9);
+        $finalName = $genID . "_" . $filename;
+        $blog->image = $finalName;
+        $req->file('image')->storeAs('public', $finalName);
+
+        $blog->save();
+        return redirect('admin/blogs')->with('msg','Successfully Added');
     }
 
     public function viewBlog(){
         return view('admin.blogs.index');
     }
 
-    public function deleteBlog(){
-        return view('admin.blogs.index');
+    public function deleteBlog($id){
+        $blog = Blog::find($id);
+        if($blog != null){
+            $blog->delete();
+        }
+        return redirect('admin/blogs')->with('msg','Successfully Deleted');
     }
 
     public function contacts(){

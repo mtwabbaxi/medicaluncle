@@ -87,7 +87,6 @@ Route::get('admin/products/category/delete/{id}','ProductController@deleteCatego
 Route::get('admin/blogs', 'AdminController@blogs')->middleware('auth','admin');
 Route::get('admin/blogs/add', 'AdminController@addBlog')->middleware('auth','admin');
 Route::post('admin/blogs/add', 'AdminController@insertBlog')->middleware('auth','admin');
-Route::get('admin/blogs/view/{id}', 'AdminController@viewBlog')->middleware('auth','admin');
 Route::get('admin/blogs/delete/{id}', 'AdminController@deleteBlog')->middleware('auth','admin');
 
 // Buyer Routes
@@ -120,6 +119,9 @@ Route::get('buyer/completed-orders','OrderController@completedOrders')->middlewa
 Route::get('buyer/b2bproducts','ProductController@b2bproducts')->middleware('auth','customer');
 Route::get('buyer/track-order','OrderController@trackOrder')->middleware('auth','customer');
 Route::post('buyer/track-order','OrderController@trackOrderSeriously')->middleware('auth','customer');
+
+Route::get('buyer/order/review/{orderId}/{productId}','OrderController@writeReview')->middleware('auth','customer');
+Route::post('buyer/order/review/{orderId}/{productId}','OrderController@submitReview')->middleware('auth','customer');
 
 // Custom Procurement
 

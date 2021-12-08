@@ -37,6 +37,10 @@
 							<a href="{{ url('buyer/products/'.$product->id) }}">
 								<h5 class="card-title" style="font-weight:bold"> {{ $product->name  }} </h5>
 							</a>
+							<span class="ffrating">
+								{{ round(App\Review::where('product_id',$product->id)->where('seller_id',$product->user_id)->avg('rating'),1)}} 
+								<span class="fa fa-star checked" style="color: #f44336"></span>
+							</span>
 							<h6 class="card-text" style="font-size:10px; min-height:45px;font-weight:bold;">
 								{{ App\User::find($product->user_id)->name }}
 								@if (App\User::find($product->user_id)->role == 'admin')
@@ -46,8 +50,8 @@
 									</g>
 									</svg>	
 								@endif
-							
 							</h6>
+							
 							<h6 class="card-text" style="font-style: italic; font-size:10px;min-height: 10px;">{{ App\Category::find($product->category_id)->name }}</h6>
 							<p class="card-text" style="height: 75px;">{{ substr($product->excerpt, 0, 100) }} </p>
 							<p class="card-text priceTag">₨.{{ number_format($product->price) }} </p>

@@ -11,10 +11,19 @@
             <h6 class="m-0 font-weight-bold text-primary">Add Blog</h6>
         </div>
         <div class="card-body">
+            @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
             
            <div class="row">
                <div class="col-md-12">
-                <form action="{{ url('admin/blogs/add') }}" method="post">
+                <form action="{{ url('admin/blogs/add') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for=""> Enter Title </label>
@@ -32,9 +41,10 @@
 
                     <div class="form-group">
                         <label for=""> Excerpt </label>
-                        <div class="input-group">
-                            <textarea name="description"  class="form-control" required id="" cols="30" rows="10"></textarea>
-                        </div>
+                      
+                            <textarea name="excerpt" rows="2"  class="form-control" required id="excerpt" cols="30" rows="10"></textarea>
+                            <span style="float:right" id="charsLeft">150 chars left</span>
+                        
                     </div>
 
                     <div class="form-group">
@@ -44,7 +54,6 @@
                         </div>
                     </div>
 
-                    
                    
                     <div>
                         <button type="submit" class="btn btn-info btn-block">Add</button>
@@ -55,6 +64,35 @@
         </div>
     </div>
 </div>
+
+<script>
+
+	const textarea = document.getElementById("excerpt");
+	console.log(textarea);
+	textarea.addEventListener("input", event => {
+		const target = event.currentTarget;
+		const maxLength = 150;
+		const currentLength = target.value.length;
+		const charsLeftSpan = document.querySelector('#charsLeft');
+		if (currentLength >= maxLength) {
+			textarea.addEventListener('keydown', function(e) {
+				const key = e.key; 
+				if (key === "Backspace" || key === "Delete") {
+					textarea.readOnly = false;
+				} 
+			});
+			charsLeftSpan.innerText =  `Its overup ${currentLength - maxLength} up`;
+			textarea.readOnly = true;
+		
+		} else {
+			charsLeftSpan.innerText =  `${maxLength - currentLength} chars left`;
+		}
+	});
+
+
+
+
+	</script>
 
 @endsection
 

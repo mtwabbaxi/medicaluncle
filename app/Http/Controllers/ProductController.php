@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Category;
 use App\Product;
+use App\Review;
 use Illuminate\Support\Facades\File;
 use Auth;
 
@@ -132,6 +133,19 @@ class ProductController extends Controller
         $product = Product::find($id);
         $similarProducts = null;
         if($product){
+
+            // rating and Reviews
+            $rating = null;
+            $rating = Review::where('product_id',$product->id)->where('seller_id',$product->user_id)->avg('rating');
+            if ($rating == null) {
+                $rating = 0;
+            } else {
+                $rating = round($rating, 1);
+            }
+
+            $reviews = Review::where('product_id',$product->id)->where('seller_id',$product->user_id)->get();
+            
+
             $name = $product->name;
             $names = explode(" ", $name);
             if(count($names) == 2){
@@ -140,7 +154,7 @@ class ProductController extends Controller
                                         ->orWhere('excerpt', 'like', '%' . $names[1] . '%')
                                         ->orWhere('excerpt', 'like', '%' . $names[1] . '%')
                                         ->get();
-                return view('buyer.products.detail',compact('product','similarProducts'));
+                return view('buyer.products.detail',compact('product','similarProducts','rating','reviews'));
             }
             if(count($names) == 3){
                 $similarProducts = Product::where('name', 'like', '%' . $names[0] . '%')
@@ -150,10 +164,10 @@ class ProductController extends Controller
                                         ->orWhere('excerpt', 'like', '%' . $names[1] . '%')
                                         ->orWhere('excerpt', 'like', '%' . $names[2] . '%')
                                         ->get();
-                return view('buyer.products.detail',compact('product','similarProducts'));
+                return view('buyer.products.detail',compact('product','similarProducts','rating','reviews'));
             }
             $similarProducts = Product::where('name', 'like', '%' . $names[0] . '%')->get();
-            return view('buyer.products.detail',compact('product','similarProducts'));
+            return view('buyer.products.detail',compact('product','similarProducts','rating','reviews'));
         } else {
             return redirect()->back()->with('msg','Product not found');
         }

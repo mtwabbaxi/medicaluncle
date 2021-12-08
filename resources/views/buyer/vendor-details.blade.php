@@ -63,6 +63,10 @@
                                         <img class="card-img-top product-listimg" src="{{ url('storage/'.$product->image) }}"/>
                                         <div class="card-body">
                                             <h5 class="card-title prolistcardtext"> {{ $product->name }} </h5>
+                                            <span class="ffrating">
+                                                {{ round(App\Review::where('product_id',$product->id)->where('seller_id',$product->user_id)->avg('rating'),1)}} 
+                                                <span class="fa fa-star checked" style="color: #f44336"></span>
+                                            </span>
                                             <p class="card-text prolistcarddesc"> {{ $product->excerpt }} </p>
                                         </div>
                                         <div class="card-footer">

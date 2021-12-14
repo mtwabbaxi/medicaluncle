@@ -40,12 +40,12 @@ class QuotationController extends Controller
     }
 
     public function vendorRequests(){
-        $rfqs = Buyer_rfq::where('buyer_id',Auth::id())->get();
+        $rfqs = Buyer_rfq::where('buyer_id',Auth::id())->orderBy('id','DESC')->get();
         return view('buyer.rfq.requests',compact('rfqs'));
     }
 
     public function buyerRequests(){
-        $rfqs = Buyer_rfq::where('expire',0)->get();
+        $rfqs = Buyer_rfq::where('expire',0)->orderBy('id','DESC')->get();
         return view('seller.rfq.buyer-requests',compact('rfqs'));
     }
 

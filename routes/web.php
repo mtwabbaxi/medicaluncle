@@ -52,7 +52,8 @@ Route::post('seller/pending-orders/{id}/{prod}/deliever','SellerController@markA
 Route::get('seller/complete-orders','SellerController@completedOrders')->middleware('auth','seller');
 Route::get('seller/complete-orders/{id}/products','SellerController@completedOrderProducts')->middleware('auth','seller');
 
-Route::get('seller/history','SellerController@history')->middleware('auth','seller');
+Route::get('seller/analytics','SellerController@analytics')->middleware('auth','seller');
+Route::get('seller/analytics/product/{id}','SellerController@productAnalytics')->middleware('auth','seller');
 
 
 

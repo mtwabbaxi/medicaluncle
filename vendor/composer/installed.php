@@ -1,15 +1,42 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => NULL,
+        'reference' => 'd128cacc75335843a52b7ded5ae3cb4e9fa402af',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
     'versions' => array(
+        'beyondcode/laravel-dump-server' => array(
+            'pretty_version' => '1.3.0',
+            'version' => '1.3.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../beyondcode/laravel-dump-server',
+            'aliases' => array(),
+            'reference' => 'fcc88fa66895f8c1ff83f6145a5eff5fa2a0739a',
+            'dev_requirement' => false,
+        ),
+        'consoletvs/charts' => array(
+            'pretty_version' => '5.4.0',
+            'version' => '5.4.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../consoletvs/charts',
+            'aliases' => array(),
+            'reference' => '353039ae19488c0ddd33213f5506548ef8b77558',
+            'dev_requirement' => false,
+        ),
+        'consoletvs/support' => array(
+            'pretty_version' => '2.5',
+            'version' => '2.5.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../consoletvs/support',
+            'aliases' => array(),
+            'reference' => 'c7502eb323069bc7da1ad37e28d9c281ade8f1f0',
+            'dev_requirement' => false,
+        ),
         'cordoval/hamcrest-php' => array(
             'dev_requirement' => true,
             'replaced' => array(
@@ -111,6 +138,15 @@
             'aliases' => array(),
             'reference' => 'fc10d778e4b84d5bd315dad194661e091d307c6f',
             'dev_requirement' => true,
+        ),
+        'guzzlehttp/psr7' => array(
+            'pretty_version' => '2.1.0',
+            'version' => '2.1.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../guzzlehttp/psr7',
+            'aliases' => array(),
+            'reference' => '089edd38f5b8abba6cb01567c2a8aaa47cec4c72',
+            'dev_requirement' => false,
         ),
         'hamcrest/hamcrest-php' => array(
             'pretty_version' => 'v2.0.0',
@@ -289,6 +325,15 @@
                 0 => 'v5.8.38',
             ),
         ),
+        'intervention/image' => array(
+            'pretty_version' => '2.7.0',
+            'version' => '2.7.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../intervention/image',
+            'aliases' => array(),
+            'reference' => '9a8cc99d30415ec0b3f7649e1647d03a55698545',
+            'dev_requirement' => false,
+        ),
         'jakub-onderka/php-console-color' => array(
             'pretty_version' => 'v0.2',
             'version' => '0.2.0.0',
@@ -307,6 +352,24 @@
             'reference' => '9f7a229a69d52506914b4bc61bfdb199d90c5547',
             'dev_requirement' => false,
         ),
+        'jenssegers/date' => array(
+            'pretty_version' => 'v3.5.0',
+            'version' => '3.5.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../jenssegers/date',
+            'aliases' => array(),
+            'reference' => '58393b0544fc2525b3fcd02aa4c989857107e05a',
+            'dev_requirement' => false,
+        ),
+        'jlawrence/eos' => array(
+            'pretty_version' => 'v3.2.2',
+            'version' => '3.2.2.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../jlawrence/eos',
+            'aliases' => array(),
+            'reference' => '25e3d0f2316cb4636000f452a8e7dcc83725a32a',
+            'dev_requirement' => false,
+        ),
         'kodova/hamcrest-php' => array(
             'dev_requirement' => true,
             'replaced' => array(
@@ -323,12 +386,12 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => NULL,
+            'reference' => 'd128cacc75335843a52b7ded5ae3cb4e9fa402af',
             'dev_requirement' => false,
         ),
         'laravel/tinker' => array(
@@ -556,6 +619,36 @@
                 0 => '1.0',
             ),
         ),
+        'psr/http-factory' => array(
+            'pretty_version' => '1.0.1',
+            'version' => '1.0.1.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../psr/http-factory',
+            'aliases' => array(),
+            'reference' => '12ac7fcd07e5b077433f5f2bee95b3a771bf61be',
+            'dev_requirement' => false,
+        ),
+        'psr/http-factory-implementation' => array(
+            'dev_requirement' => false,
+            'provided' => array(
+                0 => '1.0',
+            ),
+        ),
+        'psr/http-message' => array(
+            'pretty_version' => '1.0.1',
+            'version' => '1.0.1.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../psr/http-message',
+            'aliases' => array(),
+            'reference' => 'f6561bf28d520154e4b0ec72be95418abe6d9363',
+            'dev_requirement' => false,
+        ),
+        'psr/http-message-implementation' => array(
+            'dev_requirement' => false,
+            'provided' => array(
+                0 => '1.0',
+            ),
+        ),
         'psr/log' => array(
             'pretty_version' => '1.1.3',
             'version' => '1.1.3.0',
@@ -588,6 +681,15 @@
             'install_path' => __DIR__ . '/../psy/psysh',
             'aliases' => array(),
             'reference' => '90da7f37568aee36b116a030c5f99c915267edd4',
+            'dev_requirement' => false,
+        ),
+        'ralouphie/getallheaders' => array(
+            'pretty_version' => '3.0.3',
+            'version' => '3.0.3.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../ralouphie/getallheaders',
+            'aliases' => array(),
+            'reference' => '120b605dfeb996808c31b6477290a714d356e822',
             'dev_requirement' => false,
         ),
         'ramsey/uuid' => array(
@@ -948,6 +1050,15 @@
             'install_path' => __DIR__ . '/../tijsverkoyen/css-to-inline-styles',
             'aliases' => array(),
             'reference' => 'dda2ee426acd6d801d5b7fd1001cde9b5f790e15',
+            'dev_requirement' => false,
+        ),
+        'umpirsky/language-list' => array(
+            'pretty_version' => 'v1.1',
+            'version' => '1.1.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../umpirsky/language-list',
+            'aliases' => array(),
+            'reference' => '7813f6696559496d014acd5dce0e3b09c0766844',
             'dev_requirement' => false,
         ),
         'vlucas/phpdotenv' => array(

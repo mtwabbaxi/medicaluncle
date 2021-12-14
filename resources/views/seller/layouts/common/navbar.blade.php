@@ -19,7 +19,7 @@
                 </span> 
             </a>
         </li>
+        <li><a href="{{ url('seller/analytics') }}">Sales Analytics</a></li>
         <li><a href="{{ url('seller/buyer-requests') }}">Buyers Requests</a></li>
-        <li><a href="{{ url('seller/history') }}">History</a></li>
     </ul>
 </div>

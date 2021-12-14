@@ -5,7 +5,6 @@
 		<a href="{{ url('seller/products/add') }}" class="btn btn-sm btn-primary text-center">Add Products</a>
 	<div>
 	<div class="row" style="margin-top: 25px">
-
 		@foreach ($products as $product)
 			<div class="col-md-4 col-lg-3 col-sm-6">
 				<div class="card" style="width: 18rem;">

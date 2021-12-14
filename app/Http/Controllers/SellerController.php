@@ -10,6 +10,8 @@ use App\Order;
 use App\Order_Product;
 use Auth;
 use Hash;
+use Charts;
+use DB;
 
 class SellerController extends Controller
 {
@@ -105,8 +107,87 @@ class SellerController extends Controller
         return view('seller.buyer-requests');
     }
 
-    public function history(){
-        return view('seller.history');
+    public function analytics(){
+        $products = Product::where('user_id',Auth::id())->get();
+        $productsName = [];
+        $productSales = [];
+        
+        foreach($products as $product){
+            array_push($productsName, $product->name);
+        }
+
+        $order_products = Order_Product::where('seller_id',Auth::id())->get();
+        $sales = Charts::database($order_products, 'bar', 'highcharts')
+                                ->title("Totals Sales")
+                                ->elementLabel("Sales")
+                                ->dimensions(1000, 500)
+                                ->responsive(true)
+                                ->groupByMonth(date('Y'), true);
+
+        // products sales
+        foreach($products as $product){
+            array_push($productSales, Order_Product::where('product_id',$product->id)->count());
+        }
+        $psales = Charts::database($order_products, 'pie', 'highcharts')
+                                ->title("Totals Sales")
+                                ->elementLabel("Sales")
+                                ->labels($productsName)
+                                ->values($productSales)
+                                ->dimensions(1000, 500)
+                                ->responsive(true);
+
+        $total_earning = Order_Product::where('seller_id',Auth::id())->where('status','Delivered')->sum('totalPrice');
+
+        $today_earning = Order_Product::where('seller_id',Auth::id())
+                                        ->whereDate('created_at', DB::raw('CURDATE()'))
+                                        ->where('status','Delivered')
+                                        ->sum('totalPrice');
+
+
+        $monthly_earning = Order_Product::where('seller_id',Auth::id())
+                                        ->where(DB::raw("(DATE_FORMAT(created_at,'%m'))"),date('m'))
+                                        ->where('status','Delivered')
+                                        ->sum('totalPrice');
+        
+                                
+
+
+        return view('seller.analytics.home',compact('products','sales','psales','total_earning','today_earning','monthly_earning'));
+    }
+
+    public function productAnalytics($id){
+        if($id == null){
+            return abort(403);
+        }
+        $product = Product::find($id);
+        if($product->user_id != Auth::id()){
+            return abort(403);
+        }
+
+        $orders = Order_Product::where('product_id',$product->id)->where('seller_id',Auth::id())->orderBy('id','DESC')->limit(20)->get();
+        $order_products = Order_Product::where('product_id',$product->id)
+                                        ->where('seller_id',Auth::id())
+                                        ->where(DB::raw("(DATE_FORMAT(created_at,'%m'))"),date('m'))
+                                        ->get();
+       
+        $monthly = Charts::database($order_products, 'bar', 'highcharts')
+                            ->title("Monthly Sale")
+                            ->elementLabel("Sales")
+                            ->dimensions(1000, 500)
+                            ->responsive(true)
+                            ->groupByDay();
+
+        $yearly = Charts::database($order_products, 'line', 'highcharts')
+                        ->title("Yearly Sale")
+                        ->elementLabel("Sales")
+                        ->dimensions(1000, 500)
+                        ->responsive(true)
+                        ->groupByMonth(date('Y'), true);
+
+        return view('seller.analytics.product',
+        compact('product','orders','yearly','monthly'));
+
+        
     }
 
     

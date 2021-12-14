@@ -8,6 +8,7 @@ use App\User;
 use App\Catalog;
 use App\Order;
 use App\Order_Product;
+use App\Notification;
 use Auth;
 use Hash;
 use Charts;
@@ -83,7 +84,6 @@ class SellerController extends Controller
     }
 
     public function insertProfile(Request $req){
-      
         $seller = User::find(Auth::id());
         $password = $req->password;
         $cpassword = $req->cpassword;
@@ -186,9 +186,75 @@ class SellerController extends Controller
 
         return view('seller.analytics.product',
         compact('product','orders','yearly','monthly'));
-
-        
     }
 
+    public function notifications(){
+        $notifications = Notification::all();
+        return view('seller.notification.index',compact('notifications'));
+    }
+    public function addNotification(){
+        return view('seller.notification.add');
+    }
+    public function insertNotification(Request $req){
+        $req->validate([
+            'title'=> 'required',
+            'description'=> 'required',
+            'image' => 'required|mimes:jpg,jpeg,png,pdf|max:4096',
+            'image' => 'required|max:4096',
+            'image.*' => 'image|mimes:png,jpeg,jpg',
+            'image' => 'max:4096',
+            'image.*' => 'image|mimes:png,jpeg,jpg',
+        ]);
+        $notification = new Notification;
+        if($req->image != null) {
+            $filename = $req->file('image')->getClientOriginalName();
+            $genID = substr(sha1(time()), 0, 9);
+            $finalName = $genID . "_" . $filename;
+            $notification->image = $finalName;
+            $req->file('image')->storeAs('public', $finalName);
+        }
+
+        $notification->seller_id = Auth::id();
+        $notification->title = $req->title;
+        $notification->description = $req->description;
+        $notification->save();
+        return redirect()->back()->with('msg','Successfully Published!');
+    }
+
+    public function viewNotification($id){
+        if($id != null){
+            $notification = Notification::find($id);
+            if($notification != null){
+                if($notification->seller_id == Auth::id()){
+                    return view('seller.notification.single',compact('notification'));
+                } else {
+                    return redirect()->back()->with('msg','Unable to View!');
+                }
+            } else {
+                return redirect()->back()->with('msg','Notification not found!');
+            }
+        } else {
+            return redirect()->back()->with('msg','id not exists');
+        }
+    }
+
+
+    public function deleteNotification($id){
+        if($id != null){
+            $notification = Notification::find($id);
+            if($notification != null){
+                if($notification->seller_id == Auth::id()){
+                    $notification->delete();
+                    return redirect()->back()->with('msg','Successfully Deleted!');
+                } else {
+                    return redirect()->back()->with('msg','Unable to Delete!');
+                }
+            } else {
+                return redirect()->back()->with('msg','Notification not found!');
+            }
+        } else {
+            return redirect()->back()->with('msg','id not exists');
+        }
+    }
     
 }

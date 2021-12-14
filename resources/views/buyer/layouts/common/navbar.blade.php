@@ -25,6 +25,6 @@
         </li>
         <li><a href="{{ url('buyer/rfq') }}">RFQ</a></li>
         <li><a href="{{ url('buyer/vendor-requests') }}">Vendor Requests</a></li>
-        <li><a href="{{ url('buyer/dashboard') }}">History</a></li>
+        <li><a href="{{ url('buyer/notifications') }}">Notifications</a></li>
     </ul>
 </div>

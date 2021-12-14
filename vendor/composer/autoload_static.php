@@ -298,8 +298,8 @@ class ComposerStaticInitfd3f2edabfa2b95ab592dfa74f584e59
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Container\\' => 
         array (
@@ -478,6 +478,7 @@ class ComposerStaticInitfd3f2edabfa2b95ab592dfa74f584e59
         'App\\Http\\Middleware\\adminUser' => __DIR__ . '/../..' . '/app/Http/Middleware/adminUser.php',
         'App\\Http\\Middleware\\customerUser' => __DIR__ . '/../..' . '/app/Http/Middleware/customerUser.php',
         'App\\Http\\Middleware\\sellerUser' => __DIR__ . '/../..' . '/app/Http/Middleware/sellerUser.php',
+        'App\\Notification' => __DIR__ . '/../..' . '/app/Notification.php',
         'App\\Order' => __DIR__ . '/../..' . '/app/Order.php',
         'App\\Order_Product' => __DIR__ . '/../..' . '/app/Order_Product.php',
         'App\\Product' => __DIR__ . '/../..' . '/app/Product.php',

@@ -55,6 +55,12 @@ Route::get('seller/complete-orders/{id}/products','SellerController@completedOrd
 Route::get('seller/analytics','SellerController@analytics')->middleware('auth','seller');
 Route::get('seller/analytics/product/{id}','SellerController@productAnalytics')->middleware('auth','seller');
 
+Route::get('seller/notifications','SellerController@notifications')->middleware('auth','seller');
+Route::get('seller/notifications/add','SellerController@addNotification')->middleware('auth','seller');
+Route::post('seller/notifications/add','SellerController@insertNotification')->middleware('auth','seller');
+Route::get('seller/notifications/delete/{id}','SellerController@deleteNotification')->middleware('auth','seller');
+Route::get('seller/notifications/view/{id}','SellerController@viewNotification')->middleware('auth','seller');
+
 
 
 // Admin Routes
@@ -123,6 +129,9 @@ Route::post('buyer/track-order','OrderController@trackOrderSeriously')->middlewa
 
 Route::get('buyer/order/review/{orderId}/{productId}','OrderController@writeReview')->middleware('auth','customer');
 Route::post('buyer/order/review/{orderId}/{productId}','OrderController@submitReview')->middleware('auth','customer');
+
+Route::get('buyer/notifications','CustomerController@notifications')->middleware('auth','customer');
+Route::get('buyer/notifications/view/{id}','CustomerController@viewNotification')->middleware('auth','customer');
 
 // Custom Procurement
 

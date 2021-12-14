@@ -49,5 +49,25 @@
     </div>
 </div> 
 </div>
+
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12">
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="panel panel-default">
+                      <h2 class="panel-heading"><b>Monthly Sales</b></h2> <br>
+                      <div class="panel-body">
+                          {!! $sales->html() !!}
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+{!! Charts::scripts() !!}
+{!! $sales->script() !!}
           
 @endsection

@@ -43,6 +43,7 @@ return array(
     'App\\Http\\Middleware\\adminUser' => $baseDir . '/app/Http/Middleware/adminUser.php',
     'App\\Http\\Middleware\\customerUser' => $baseDir . '/app/Http/Middleware/customerUser.php',
     'App\\Http\\Middleware\\sellerUser' => $baseDir . '/app/Http/Middleware/sellerUser.php',
+    'App\\Notification' => $baseDir . '/app/Notification.php',
     'App\\Order' => $baseDir . '/app/Order.php',
     'App\\Order_Product' => $baseDir . '/app/Order_Product.php',
     'App\\Product' => $baseDir . '/app/Product.php',

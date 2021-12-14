@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Order_Product;
 use App\Product;
-use Auth;
 use Charts;
 use DB;
+use Auth;
 
 class HomeController extends Controller
 {

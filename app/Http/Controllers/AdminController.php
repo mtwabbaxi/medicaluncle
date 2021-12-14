@@ -13,6 +13,8 @@ use App\Contact;
 use App\Blog; 
 use Auth;
 use Hash;
+use Charts;
+use DB;
 
 class AdminController extends Controller
 {
@@ -79,7 +81,14 @@ class AdminController extends Controller
     }
 
     public function orders(){
-        return view('admin.orders.index');
+        $order_products = Order_Product::where('status','Delivered')->get();
+        $sales = Charts::database($order_products, 'bar', 'highcharts')
+                                ->title("Totals Sales")
+                                ->elementLabel("Sales")
+                                ->dimensions(1000, 500)
+                                ->responsive(true)
+                                ->groupByMonth(date('Y'), true);
+        return view('admin.orders.index',compact('sales'));
     }
 
     

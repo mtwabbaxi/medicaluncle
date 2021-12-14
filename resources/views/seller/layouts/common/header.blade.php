@@ -5,7 +5,7 @@
 		</a>
 		<div class="headersubmitlink">
 			<a href="{{ url('seller/products/add') }}">Add Product</a>
-			<a href="{{ url('seller/products/inventory') }}">Vendor Notifications</a>
+			<a href="{{ url('seller/notifications') }}">Vendor Notifications</a>
 		</div>
 
 		<div class="visible-xs toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">

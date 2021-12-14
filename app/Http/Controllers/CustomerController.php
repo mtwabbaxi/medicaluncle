@@ -5,6 +5,7 @@ use App\Product;
 use App\User;
 use App\Catalog;
 use App\Order;
+use App\Notification;
 use DB;
 use Auth;
 use Hash;
@@ -78,6 +79,24 @@ class CustomerController extends Controller
             return view('buyer.products.index',compact('products'));
         } else {
             return redirect()->back()->with('msg','Please add search term');
+        }
+    }
+
+    public function notifications(){
+        $notifications = Notification::all();
+        return view('buyer.notification.index',compact('notifications'));
+    }
+
+    public function viewNotification($id){
+        if($id != null){
+            $notification = Notification::find($id);
+            if($notification != null){
+                return view('buyer.notification.single',compact('notification'));
+            } else {
+                return redirect()->back()->with('msg','Notification not found!');
+            }
+        } else {
+            return redirect()->back()->with('msg','id not exists');
         }
     }
     

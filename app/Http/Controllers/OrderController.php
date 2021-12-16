@@ -74,7 +74,15 @@ class OrderController extends Controller
         $cart_product = Cart_Product::find($id);
         if($cart_product){
             $cart_product->quantity = $req->quantity;
-            
+            $productId = $cart_product->product_id;
+            $product = Product::find($productId);
+
+            if($cart_product->quantity > $product->stock){
+                $msg = "This product is only ".$product->stock." in stock.";
+                return redirect()->back()->with('msg',$msg)->with('errorType','danger');
+            }
+
+
             if($cart_product->quantity <= 0){
                 $cart_product->delete();
                 return redirect()->back()->with('msg','Product not found in the cart!')->with('errorType','danger');
@@ -256,6 +264,11 @@ class OrderController extends Controller
         $review->rating = $req->rating;
         $review->review = $req->review;
         $review->save();
+
+        $avg_rating = Review::where('product_id',$productId)->avg('rating');
+        $pprod = Product::find($productId);
+        $pprod->rating = $avg_rating;
+        $pprod->save();
         return redirect()->back()->with('msg','Review Submitted!');
 
         return $req->rating;

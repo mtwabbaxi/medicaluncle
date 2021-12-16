@@ -3,6 +3,10 @@
 
 <h5 style="margin-top: 0px;"><b>Buyer Requests</b></h5> <hr>
 
+@if (session('msg'))
+    <div class="alert alert-danger">{{ session('msg') }}</div>
+@endif
+
  <div style="margin-top: 35px">
     @foreach ($rfqs as $rfq)
     <div class="col-md-12 col-sm-6 col-xs-12 pr-0">

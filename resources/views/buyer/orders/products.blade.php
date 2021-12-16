@@ -85,7 +85,9 @@
                                     <h2> <span class="badge badge-pill badge-warning" style="padding: 11px 16px; font-size:20px"> {{ $product->status }} </span></h2>
                                </div>
                                <div>
-                                   <a href="{{url('buyer/order/review/'.$order->id.'/'.$product->product_id) }}" class="btn btn-success">Write a Review</a>
+                                   @if (App\Order::where('order_no',$product->order_no)->first()->status == "Completed")
+                                    <a href="{{url('buyer/order/review/'.$order->id.'/'.$product->product_id) }}" class="btn btn-success">Write a Review</a>
+                                   @endif
                                </div>
                             </div><img id="productImageShow" src="{{ url('storage/'.App\Product::find($product->product_id)->image) }}" 
                             alt="Generic placeholder image" width="200" class="ml-lg-5 order-1 order-lg-2">

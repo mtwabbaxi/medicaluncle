@@ -6,6 +6,9 @@
             <h6 class="m-0 font-weight-bold text-primary">Order Products</h6>
         </div>
       <div class="card-body">
+        @if (session('msg'))
+            <div class="alert alert-danger">{{ session('msg') }}</div>
+        @endif
         <div class="table-responsive">
           <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
             <thead>
@@ -51,12 +54,15 @@
                      
 
                         @if ($product->status != 'Delivered')
-                        <a href="{{ url('admin/order/'.$orderId.'/'.$product->product_id.'/s') }}" 
-                          class="btn btn-info btn-sm"
-                          onclick="return confirm('Are you sure you want to Mark this Product as Shipped?');"
-                          >
-                          Mark as Shipped
-                        </a>
+                        @if ($product->status != 'Shipped')
+                          <a href="{{ url('admin/order/'.$orderId.'/'.$product->product_id.'/s') }}" 
+                            class="btn btn-info btn-sm"
+                            onclick="return confirm('Are you sure you want to Mark this Product as Shipped?');"
+                            >
+                            Mark as Shipped
+                          </a>
+                        @endif
+                        
                         <a href="{{ url('admin/order/'.$orderId.'/'.$product->product_id.'/d') }}" 
                           class="btn btn-success btn-sm"
                           onclick="return confirm('Are you sure you want to Mark this Product as Delievered?');"

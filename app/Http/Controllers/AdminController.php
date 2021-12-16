@@ -25,6 +25,7 @@ class AdminController extends Controller
     }
     public function profileUpdate(Request $req)
     {
+
         $user = User::find(Auth::id());
         $user->name = $req->name;
         $user->email = $req->email;
@@ -120,8 +121,20 @@ class AdminController extends Controller
                                         ->where('seller_id',$seller_id)
                                         ->where('status','Pending')->orWhere('status','Shipped')
                                         ->first();
+           if($product->vendor_status == null){
+                return redirect()->back()->with('msg','Sorry, you cant process, vendor sending status is pending.');
+           }
+                                  
             if($prodStatus == 'd'){
+                if($product->status != "Shipped"){
+                    return redirect()->back()->with('msg','Sorry, you cant process, you cant deliever without shipping.');
+               }
+
+
                 $product->status = 'Delivered';
+                $productOwn = Product::find($prodId);
+                $productOwn->stock = $productOwn->stock - $product->quantity;
+                $productOwn->save();
                 $product->save();
 
                 // Check more items

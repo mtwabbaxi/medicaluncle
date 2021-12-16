@@ -91,6 +91,9 @@ class QuotationController extends Controller
 
     public function viewQuotation($id){
         $bid = Bid::where('request_id', $id)->where('seller_id',Auth::id())->first();
+        if($bid == null){
+            return redirect()->back()->with('msg','Please add products to make quotation');
+        }
         $products = Bid_product::where('bid_id', $bid->id)->get();
         $rfq = Buyer_rfq::find($id);
         $buyer = User::find($rfq->buyer_id);

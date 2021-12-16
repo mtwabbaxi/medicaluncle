@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Contact;
 use App\Blog;
+use App\Review;
+use DB;
+use Illuminate\Support\Facades\Input;
 
 class IndexController extends Controller
 {

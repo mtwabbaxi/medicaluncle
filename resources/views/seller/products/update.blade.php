@@ -59,6 +59,11 @@
 											<label for="">SKU</label>                                  
 											<input type="text" class="form-control" value="{{ $product->sku }}" required name="sku" placeholder="Enter Product SKU" />
 										</div> <br>
+
+										<div class="form-group">  
+											<label for="">Stock</label>                                  
+											<input type="number" class="form-control" required name="stock" value="{{ $product->stock }}" placeholder="Enter amount of product in stock" />
+										</div> <br>
 	
 										<div class="form-group"> 
                                             <img src="{{ asset('storage/'.$product->image) }}" height="70" width="50" alt=""> 

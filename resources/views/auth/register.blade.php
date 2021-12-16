@@ -12,12 +12,23 @@
                     <div class="card-body">
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
+
+                            <div class="form-group row">
+                                {{-- <label for="role" class="col-md-2 col-form-label text-md-right">Role</label> --}}
+                                <div class="col-md-12">
+                                  <select name="role" id="" >
+                                      <option value="seller">Seller</option>
+                                      <option value="customer" selected>Customer/Buyer</option>
+                                  </select>
+                                </div>
+                            </div>
                     
                             <div class="form-group row">
-                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
                     
-                                <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <div class="col-md-12">
+                                    <input id="name" type="text"  @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}"
+                                    placeholder="Enter name"
+                                    required autocomplete="name" autofocus>
                     
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
@@ -28,10 +39,10 @@
                             </div>
                     
                             <div class="form-group row">
-                                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                                {{-- <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label> --}}
                     
-                                <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                <div class="col-md-12">
+                                    <input id="email" type="email" placeholder="Enter email address"  @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
                     
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -42,10 +53,10 @@
                             </div>
                     
                             <div class="form-group row">
-                                <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                                {{-- <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label> --}}
                     
-                                <div class="col-md-6">
-                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <div class="col-md-12">
+                                    <input id="password" placeholder="Enter Password" type="password"  @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
                     
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
@@ -56,17 +67,17 @@
                             </div>
                     
                             <div class="form-group row">
-                                <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                                {{-- <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label> --}}
                     
-                                <div class="col-md-6">
-                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <div class="col-md-12">
+                                    <input id="password-confirm" type="password" placeholder="Enter confirm password"  name="password_confirmation" required autocomplete="new-password">
                                 </div>
                             </div>
                     
                             <div class="form-group row">
-                                <label for="password-confirm" class="col-md-4 col-form-label text-md-right"> Gender </label>
-                                <div class="col-md-6">
-                               <select name="gender" class="form-control">
+                                {{-- <label for="" class="col-md-4 col-form-label text-md-right"> Gender </label> --}}
+                                <div class="col-md-12">
+                               <select name="gender" >
                                    <option value="male">Male</option>
                                    <option value="female">Female</option>
                                </select>
@@ -74,25 +85,24 @@
                             </div>
                             
                             <div class="form-group row">
-                                <label for="phonenumber" class="col-md-4 col-form-label text-md-right">Phone number</label>
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control" name="phonenumber" required>
+                                {{-- <label for="phonenumber" class="col-md-4 col-form-label text-md-right">Phone number</label> --}}
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <input type="text" disabled  value="+92" required>
+                                        </div>
+                                        <div class="col-md-10 ">
+                                                <input type="number" maxlength="10" minlength="10" placeholder="Enter phonenumber"  name="phonenumber" required>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                     
-                            <div class="form-group row">
-                                <label for="role" class="col-md-4 col-form-label text-md-right">Role</label>
-                                <div class="col-md-6">
-                                  <select name="role" id="" class="form-control">
-                                      <option value="seller">Seller</option>
-                                      <option value="customer">Customer/Buyer</option>
-                                  </select>
-                                </div>
-                            </div>
+                            
                     
                         
                             <div class="form-group row mb-0">
-                                <div class="col-md-6 offset-md-4">
+                                <div class="col-md-12">
                                     <button type="submit" class="btn btn-primary btn-block">
                                         {{ __('Register') }}
                                     </button>

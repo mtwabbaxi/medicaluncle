@@ -75,7 +75,7 @@
                         <h5 class="card-title" style="min-height: 30px;font-weight:bold"> {{ $product->name }} </h5>
                     </a>
                     <h6 class="card-text" style="font-style: italic; font-size:10px;min-height: 30px;">{{ App\Category::find($product->category_id)->name }}</h6>
-                    <p class="card-text" style="height: 40px;">{{ substr($product->excerpt, 0, 100) }} </p>
+                    <p class="card-text" style="height: 70px;">{{ substr($product->excerpt, 0, 100) }} </p>
                     <a href="{{ url('seller/analytics/product/'.$product->id) }}" class="btn btn-success btn-block"> 
                         <i class="fa fa-eye" aria-hidden="true"></i>&nbsp; View Analytics</a>
                 </div>

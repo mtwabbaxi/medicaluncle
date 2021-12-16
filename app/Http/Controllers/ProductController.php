@@ -21,6 +21,10 @@ class ProductController extends Controller
     }
 
     public function insertCategory(Request $req) {
+        $req->validate([
+            'name'=>'required',
+        ]);
+
         $category = new Category;
         $category->name = $req->name;
         $category->user_id = Auth::id();
@@ -46,6 +50,11 @@ class ProductController extends Controller
     public function insert(Request $req) {
 
         $req->validate([
+            'name'=>'required',
+            'price'=>'required',
+            'sku'=>'required',
+            'category_id'=>'required',
+            'stock'=>'required',
             'image' => 'required|mimes:jpg,jpeg,png,pdf|max:4096',
             'image' => 'required|max:4096',
             'image.*' => 'image|mimes:png,jpeg,jpg',
@@ -63,6 +72,7 @@ class ProductController extends Controller
         $product->category_id = $req->category_id;
         $product->price = $req->price;
         $product->sku = $req->sku;
+        $product->stock = $req->stock;
         $product->image = $finalName;
         $product->description = $req->description;
         $product->excerpt = $req->excerpt;
@@ -83,6 +93,11 @@ class ProductController extends Controller
             $previous_image = public_path('storage/'.$product->image);
             $img=File::delete($previous_image);
             $req->validate([
+                'name'=>'required',
+                'price'=>'required',
+                'sku'=>'required',
+                'category_id'=>'required',
+                'stock'=>'required',
                 'image' => 'required|mimes:jpg,jpeg,png,pdf|max:4096',
                 'image' => 'required|max:4096',
                 'image.*' => 'image|mimes:png,jpeg,jpg',
@@ -102,6 +117,7 @@ class ProductController extends Controller
         $product->category_id = $req->category_id;
         $product->price = $req->price;
         $product->sku = $req->sku;
+        $product->stock = $req->stock;
         $product->description = $req->description;
         $product->excerpt = $req->excerpt;
         $product->save();
@@ -141,6 +157,9 @@ class ProductController extends Controller
                 $rating = 0;
             } else {
                 $rating = round($rating, 1);
+                $pprod = Product::find($product->id);
+                $pprod->rating = $rating;
+                $pprod->save();
             }
 
             $reviews = Review::where('product_id',$product->id)->where('seller_id',$product->user_id)->get();
@@ -182,6 +201,4 @@ class ProductController extends Controller
             return redirect()->back()->with('msg','B2B not found!');
         }
     }
-
-    
 }

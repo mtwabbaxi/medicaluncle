@@ -9,6 +9,7 @@ use App\Notification;
 use DB;
 use Auth;
 use Hash;
+use Illuminate\Support\Facades\Input;
 
 use Illuminate\Http\Request;
 
@@ -17,7 +18,7 @@ class CustomerController extends Controller
     public function index() {
         $products = Product::orderBy('id','DESC')->limit('8')->get();
         $catalogs = Catalog::orderBy('id','DESC')->limit('8')->get();
-        $sellers = Order::groupBy('seller_id')
+        $sellers  = Order::groupBy('seller_id')
                             ->select('seller_id', DB::raw('count(*) as total'))
                             ->orderBy('total','DESC')
                             ->get();
@@ -26,7 +27,23 @@ class CustomerController extends Controller
     }
 
     public function products(){
+        $firstPrice = Input::get('firstPrice');
+        $lastPrice = Input::get('lastPrice');
+        $getRating = Input::get('rating');
         $products = Product::orderBy('id','DESC')->get();
+        if($firstPrice != null && $lastPrice != null){
+            $products = Product::whereBetween('price', [$firstPrice, $lastPrice])->orderBy('price','DESC')->get();
+        }elseif($firstPrice != null && $lastPrice != null && $getRating != null){
+            $products = Product::whereBetween('price', [$firstPrice, $lastPrice])
+                                ->orderBy('price','DESC')
+                                ->where('rating','>=',$getRating)
+                                ->where('rating','<',$getRating+1)
+                                ->get();
+        }
+
+        if($getRating != null){
+            $products = Product::where('rating','>=',$getRating)->where('rating','<',$getRating+1)->orderBy('id','DESC')->get();
+        }
         return view('buyer.products.index', compact('products'));
     }
     public function catalogs(){

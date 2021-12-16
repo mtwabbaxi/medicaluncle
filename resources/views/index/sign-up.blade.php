@@ -20,6 +20,11 @@
                             <form method="POST" action="{{ route('register') }}">
                                 @csrf
 
+                                <select name="role" required id="" >
+                                    <option value="seller">Seller</option>
+                                    <option value="customer" selected>Customer/Buyer</option>
+                                </select>
+
                                 <input id="name" type="text" placeholder="Full Name" 
                                 class="@error('name') is-invalid @enderror" 
                                 name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -64,12 +69,17 @@
                                     <option value="female">Female</option>
                                 </select>
 
-                                <input type="text" placeholder="Phone number"  name="phonenumber" required>
 
-                                <select name="role" required id="" >
-                                    <option value="seller">Seller</option>
-                                    <option value="customer">Customer/Buyer</option>
-                                </select>
+                               <div class="row">
+                                <div class="col-md-3" >
+                                    <input type="text" disabled  value="+92" required>
+                                </div>
+                                <div class="col-md-9">
+                                    <input type="number" placeholder="Phone number" maxlength="10" name="phonenumber" required>
+                                </div>
+                               </div>
+
+                                
                                     
                                 <button type="submit" class="cv-btn">Sign up</button>
                              </form>

@@ -22,19 +22,23 @@
                     <div class="product_description">
                         <div class="product_name"> {{ $product->name }}  </div>
                         <div class="product-rating">
-                            <span class="badge badge-success"> {{ App\Category::find($product->category_id)->name }} </span> </div> <br>
+                            <span class="badge badge-success"> {{ App\Category::find($product->category_id)->name }} </span> </div> 
+                            <span class="badge badge-warning">{{$product->stock == null ? "Out of stock" : $product->stock." in stock"  }} </span><br>
                             Rating: <b>{{ $rating }} <span class="fa fa-star checked" style="color: #f44336"></span></b>
-                        <div> <span class="product_price">Rs. {{ $product->price }} PKR</span></div>
+                        <div> <span class="product_price">Rs. {{ number_format($product->price) }} PKR</span></div>
                         <hr class="singleline">
                         <div> {{ $product->description }}</div>
                         <div class="row">
                             <div class="col-xs-6"> 
+                                @if ($product->stock != null)
                                 <a href="{{ url('buyer/add-to-cart/'.$product->id) }}" type="button" 
                                     style="background: #f44336; color:white" 
                                     class="btn btn-lg shop-button">
                                     <i class="fa fa-shopping-cart"></i> &nbsp;
                                     Add to Cart
                                 </a> 
+                                @endif
+                                
                             </div>
                         </div>
                     </div>
@@ -66,7 +70,7 @@
     <hr>
 
     <div style="margin-top: 25px">
-        <h4> <b>Recommended Products</b> </h4><hr>
+        <h4> <b>Similar Products</b> </h4><hr>
         <div class="row">
             @foreach ($similarProducts as $prod)
                 <div class="col-md-4 col-lg-3 col-sm-6">

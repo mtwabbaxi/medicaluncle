@@ -2,7 +2,7 @@
 @section('content')
 
 	<div class="col-md-12 col-xs-12 pl-0" style="margin-right: 4px">
-		<a href="{{ url('seller/products/add') }}" class="btn btn-sm btn-primary text-center">Add Products</a>
+		<a href="{{ url('seller/products/add') }}" class="btn btn-lg  btn-primary text-center btn-block">Add Products</a>
 	<div>
 	<div class="row" style="margin-top: 25px">
 		@foreach ($products as $product)
@@ -10,8 +10,8 @@
 				<div class="card" style="width: 18rem;">
 					<img class="card-img-top product-listimg" src="{{ asset('storage/'.$product->image) }}" alt="{{ $product->name }}"  /> 
 					<div class="card-body">
-						<a href="{{ url('seller/products/'.$product->id) }}">
-							<h5 class="card-title" style="min-height: 60px;font-weight:bold"> {{ $product->name }} </h5>
+						<a href="{{ url('seller/products/'.$product->id) }}" style="min-height: 60px;">
+							<h5 class="card-title" style="font-weight:bold"> {{ $product->name }} </h5> <span class="badge badge-warning">{{$product->stock == null ? "Out of stock" : $product->stock  }} in stock</span>
 						</a>
 						<h6 class="card-text" style="font-style: italic; font-size:10px;min-height: 30px;">{{ App\Category::find($product->category_id)->name }}</h6>
 						<p class="card-text" style="height: 75px;">{{ substr($product->excerpt, 0, 100) }} </p>

@@ -12,7 +12,7 @@
                             </span>
                             <div class="cv-tophead-contact">
                                <p>For Sales &amp; Support </p>
-                               <a href="tel:(+91)1234-0000">(+92)348-5583125</a>
+                               <a href="tel:+923485583125">(+92)348-5583125</a>
                             </div>
                          </li>
                     </ul>
@@ -39,7 +39,7 @@
                               </span>
                               <div class="cv-tophead-contact">
                                  <p>Have Query E-Mail Us</p>
-                                 <a href="mailto:support@domian.com">support@medicaluncle.com</a>
+                                 <a href="mailto:support@medicaluncle.com">support@medicaluncle.com</a>
                               </div>
                            </li>
                         </ul>

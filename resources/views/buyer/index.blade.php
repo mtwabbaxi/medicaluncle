@@ -94,14 +94,16 @@
 
 <div class="row">
 	<div class="col-sm-12" style="margin-top:25px ">
-		<h2 class="pageheading-topseller">Top Seller <span>This week's most popular sellers</span></h2>
+		<h2 class="pageheading-topseller">Top Sellers<span></span></h2>
 	</div>
 	<div class="topseller-allproducts mb-5">
+		<?php $i=0; ?>
 		@foreach ($sellers as $seller)
+		<?php $i++; ?>
 			<div class="col-sm-6 col-md-6 col-lg-3">
 				<div class="topseller-singleproduct">
 					<div class="topseller-singleorders">
-						<span class="numberval">1</span>
+						<span class="numberval">{{ $i }}</span>
 						<span class="numbercount">{{ $seller->total }} Orders</span>
 					</div>
 					<img src="" alt="">
@@ -115,7 +117,7 @@
 
 <div class="row featureusedpro" style="padding-top:40px">
 	<div class="recentlyaddedproindex">
-		<h2 class="pageheading-topseller">Featured Used Products<span>For all your needs</span></h2>
+		<h2 class="pageheading-topseller">Products<span> For all your needs</span></h2>
 		@foreach ($products as $product)
 		<div class="col-md-4 col-lg-3 col-sm-6">
 			<div class="card" style="width: 18rem;height: 350px;border:2px solid rgba(0,0,0,.125) !important">

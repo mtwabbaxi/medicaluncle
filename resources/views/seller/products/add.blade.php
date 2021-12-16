@@ -58,6 +58,11 @@
 											<label for="">SKU</label>                                  
 											<input type="text" class="form-control" required name="sku" placeholder="Enter Product SKU" />
 										</div> <br>
+
+										<div class="form-group">  
+											<label for="">Stock</label>                                  
+											<input type="number" class="form-control" required name="stock" placeholder="Enter amount of product in stock" />
+										</div> <br>
 	
 										<div class="form-group">  
 											<label for="">Image</label>                                  

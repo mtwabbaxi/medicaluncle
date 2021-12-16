@@ -23,7 +23,7 @@ class SellerController extends Controller
     }
 
     public function pendingOrders(){
-        $orders = Order::where('seller_id',Auth::id())->where('status','OrderPlaced')->get();
+        $orders = Order::where('seller_id',Auth::id())->where('status','OrderPlaced')->orderBy('id','DESC')->get();
         return view('seller.orders.pending',compact('orders'));
     }
 

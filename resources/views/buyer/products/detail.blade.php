@@ -16,7 +16,50 @@
         <div class="container-fluid" style=" background-color: #fff; padding: 11px;">
             <div class="row">
                 <div class="col-lg-4 order-lg-2 order-1">
-                    <div class="image_selected"><img src="{{ url('storage/'.$product->image) }}" alt=""></div>
+
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <div class="image_selected"><img src="{{ url('storage/'.$product->image) }}" alt=""></div>
+                            </div>
+                            @if ($product->image2 != null)
+                                <div class="item">
+                                    <div class="image_selected">
+                                        <img src="{{ url('storage/'.$product->image2) }}" alt="">
+                                    </div>
+                                </div>
+                            @endif
+                            @if ($product->image3 != null)
+                                <div class="item">
+                                    <div class="image_selected">
+                                        <img src="{{ url('storage/'.$product->image3) }}" alt="">
+                                    </div>
+                                </div>
+                            @endif
+                            @if ($product->image4 != null)
+                                <div class="item">
+                                    <div class="image_selected">
+                                        <img src="{{ url('storage/'.$product->image4) }}" alt="">
+                                    </div>
+                                </div>
+                            @endif
+                            
+                        </div>
+            
+                        <!-- Left and right controls -->
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+
+
+                    
                 </div>
                 <div class="col-lg-6 order-3">
                     <div class="product_description">
@@ -24,7 +67,8 @@
                         <div class="product-rating">
                             <span class="badge badge-success"> {{ App\Category::find($product->category_id)->name }} </span> </div> 
                             <span class="badge badge-warning">{{$product->stock == null ? "Out of stock" : $product->stock." in stock"  }} </span><br>
-                            Rating: <b>{{ $rating }} <span class="fa fa-star checked" style="color: #f44336"></span></b>
+                            Rating: <b>{{ $rating }} <span class="fa fa-star checked" style="color: #f44336"></span></b> <br>
+                            Size : {{ $product->s !=null ? 'Small' : '' }} {{ $product->m !=null ? ',Medium' : '' }} {{ $product->l !=null ? ',Large' : '' }}
                         <div> <span class="product_price">Rs. {{ number_format($product->price) }} PKR</span></div>
                         <hr class="singleline">
                         <div> {{ $product->description }}</div>

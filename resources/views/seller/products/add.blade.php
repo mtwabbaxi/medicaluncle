@@ -65,9 +65,39 @@
 										</div> <br>
 	
 										<div class="form-group">  
-											<label for="">Image</label>                                  
-											<input type="file" class="form-control" required name="image" />
-										</div> <br>
+											<label for="">Images</label>   
+											<div class="row">
+												<div class="col-md-3 col-lg-3 col-sm-3"><span class="text-danger">*</span>
+													<input type="file" class="form-control" required name="image" />
+												</div>
+												<div class="col-md-3 col-lg-3 col-sm-3"> <span class="text-danger">Optional</span>
+													<input type="file" class="form-control"  name="image2" />
+												</div>
+												<div class="col-md-3 col-lg-3 col-sm-3"> <span class="text-danger">Optional</span>
+													<input type="file" class="form-control"  name="image3" />
+												</div>
+												<div class="col-md-3 col-lg-3 col-sm-3"> <span class="text-danger">Optional</span>
+													<input type="file" class="form-control"  name="image4" />
+												</div>
+											</div> 
+										</div> 
+										
+										<br>
+										<div class="form-group">  
+											<label for="">Sizes</label>   
+											<div class="row">
+												<div class="col-md-4 col-lg-4 col-sm-4">
+													Large<input type="checkbox" class="form-control" name="l" />
+												</div>
+												<div class="col-md-4 col-lg-4 col-sm-4">
+													Medium<input type="checkbox" class="form-control" name="m" />
+												</div>
+												<div class="col-md-4 col-lg-4 col-sm-4">
+													Small<input type="checkbox" class="form-control" name="s" />
+												</div>
+											</div> 
+										</div> 
+										<br>
 
 										<div class="form-group">
 											<div class="form-line">

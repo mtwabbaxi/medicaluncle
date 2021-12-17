@@ -65,11 +65,50 @@
 											<input type="number" class="form-control" required name="stock" value="{{ $product->stock }}" placeholder="Enter amount of product in stock" />
 										</div> <br>
 	
-										<div class="form-group"> 
-                                            <img src="{{ asset('storage/'.$product->image) }}" height="70" width="50" alt=""> 
-											<label for="">Image</label>                                  
-											<input type="file" class="form-control" name="image" />
-										</div> <br>
+										<div class="form-group">  
+											<label for="">Images</label>   
+											<div class="row">
+												<div class="col-md-3 col-lg-3 col-sm-3"><span class="text-danger">*</span>
+													<img src="{{ asset('storage/'.$product->image) }}" height="70" width="50" alt=""> 
+													<input type="file" class="form-control" required name="image" />
+												</div>
+												<div class="col-md-3 col-lg-3 col-sm-3"> <span class="text-danger">Optional</span>
+													@if ($product->image2 != null)
+													<img src="{{ asset('storage/'.$product->image2) }}" height="70" width="50" alt=""> 
+													@endif
+													<input type="file" class="form-control"  name="image2" />
+												</div>
+												<div class="col-md-3 col-lg-3 col-sm-3"> <span class="text-danger">Optional</span>
+													@if ($product->image3 != null)
+													<img src="{{ asset('storage/'.$product->image3) }}" height="70" width="50" alt=""> 
+													@endif
+													<input type="file" class="form-control"  name="image3" />
+												</div>
+												<div class="col-md-3 col-lg-3 col-sm-3"> <span class="text-danger">Optional</span>
+													@if ($product->image4 != null)
+													<img src="{{ asset('storage/'.$product->image4) }}" height="70" width="50" alt=""> 
+													@endif
+													<input type="file" class="form-control"  name="image4" />
+												</div>
+											</div> 
+										</div> 
+
+										<br>
+										<div class="form-group">  
+											<label for="">Sizes</label>   
+											<div class="row">
+												<div class="col-md-4 col-lg-4 col-sm-4">
+													Large<input type="checkbox" class="form-control" checked={{ $product->l == "1" }} name="l" />
+												</div>
+												<div class="col-md-4 col-lg-4 col-sm-4">
+													Medium<input type="checkbox" class="form-control" checked={{ $product->m == "1" }} name="m" />
+												</div>
+												<div class="col-md-4 col-lg-4 col-sm-4">
+													Small<input type="checkbox" class="form-control" checked={{ $product->s == "1" }} name="s" />
+												</div>
+											</div> 
+										</div> 
+										<br>
 
 										<div class="form-group">
 											<div class="form-line">

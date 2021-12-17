@@ -5,6 +5,7 @@ use App\Product;
 use App\User;
 use App\Catalog;
 use App\Order;
+use App\Order_Product;
 use App\Notification;
 use DB;
 use Auth;
@@ -16,7 +17,24 @@ use Illuminate\Http\Request;
 class CustomerController extends Controller
 {
     public function index() {
-        $products = Product::orderBy('id','DESC')->limit('8')->get();
+        $products = [];
+
+        $orders = Order::where('buyer_id',Auth::id())->orderBy('id','DESC')->get();
+        if($orders != null){
+            foreach($orders as $order){
+                $productsOfOrders = Order_Product::where('order_no',$order->order_no)->get();
+                foreach($productsOfOrders as $prod){
+                    $pushProduct = Product::find($prod->product_id);
+                    array_push($products,$pushProduct);
+                }   
+            }
+        } else {
+            $products = Product::orderBy('id','DESC')->limit('8')->get();
+        }
+        
+        $products = array_unique($products);
+
+        
         $catalogs = Catalog::orderBy('id','DESC')->limit('8')->get();
         $sellers  = Order::groupBy('seller_id')
                             ->select('seller_id', DB::raw('count(*) as total'))

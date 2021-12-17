@@ -117,8 +117,8 @@
 
 <div class="row featureusedpro" style="padding-top:40px">
 	<div class="recentlyaddedproindex">
-		<h2 class="pageheading-topseller">Products<span> For all your needs</span></h2>
-		@foreach ($products as $product)
+		<h2 class="pageheading-topseller">Previous<span> Product Choices</span></h2>
+		@foreach ($products as $product) 
 		<div class="col-md-4 col-lg-3 col-sm-6">
 			<div class="card" style="width: 18rem;height: 350px;border:2px solid rgba(0,0,0,.125) !important">
 				<img class="card-img-top product-listimg" src="{{ asset('storage/'.$product->image) }}" alt="{{ $product->name }}"  /> 

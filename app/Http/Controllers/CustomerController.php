@@ -33,8 +33,8 @@ class CustomerController extends Controller
         }
         
         $products = array_unique($products);
+       
 
-        
         $catalogs = Catalog::orderBy('id','DESC')->limit('8')->get();
         $sellers  = Order::groupBy('seller_id')
                             ->select('seller_id', DB::raw('count(*) as total'))

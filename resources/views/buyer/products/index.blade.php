@@ -91,7 +91,7 @@
 			<form action="{{ url('#') }}" method="GET">
 				
 				<div class="row">
-					<div class="col-lg-6">
+					<div class="col-lg-4">
 						<span class="fa fa-star checked" style="color: #f44336">  </span>
 						<span class="fa fa-star checked" style="color: #f44336">  </span>
 						<span class="fa fa-star checked" style="color: #f44336">  </span>
@@ -104,7 +104,7 @@
 				</div>
 
 				<div class="row">
-					<div class="col-lg-6">
+					<div class="col-lg-4">
 						<span class="fa fa-star checked" style="color: #f44336">  </span>
 						<span class="fa fa-star checked" style="color: #f44336">  </span>
 						<span class="fa fa-star checked" style="color: #f44336">  </span>
@@ -116,7 +116,7 @@
 				</div>
 
 				<div class="row">
-					<div class="col-lg-6">
+					<div class="col-lg-4">
 						<span class="fa fa-star checked" style="color: #f44336">  </span>
 						<span class="fa fa-star checked" style="color: #f44336">  </span>
 						<span class="fa fa-star checked" style="color: #f44336">  </span>
@@ -127,7 +127,7 @@
 				</div>
 
 				<div class="row">
-					<div class="col-lg-6">
+					<div class="col-lg-4">
 						<span class="fa fa-star checked" style="color: #f44336">  </span>
 						<span class="fa fa-star checked" style="color: #f44336">  </span>
 					</div>
@@ -137,7 +137,7 @@
 				</div>
 
 				<div class="row">
-					<div class="col-lg-6">
+					<div class="col-lg-4">
 						<span class="fa fa-star checked" style="color: #f44336">  </span>
 					</div>
 					<div class="col-lg-5" style="margin-left: -25px">

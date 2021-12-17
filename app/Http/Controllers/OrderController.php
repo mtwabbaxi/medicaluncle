@@ -88,6 +88,7 @@ class OrderController extends Controller
                 return redirect()->back()->with('msg','Product not found in the cart!')->with('errorType','danger');
             }
             $cart_product->totalPrice = $cart_product->quantity * $cart_product->product_price;
+            $cart_product->size = $req->size;
             $cart_product->save();
         } else {
             return redirect()->back()->with('msg','Product not found in the cart!')->with('errorType','danger');
@@ -142,6 +143,7 @@ class OrderController extends Controller
                 $orderProduct->product_id = $product->product_id;
                 $orderProduct->product_price = $product->product_price;
                 $orderProduct->quantity = $product->quantity;
+                $orderProduct->size = $product->size;
                 $orderProduct->totalPrice = $product->totalPrice;
                 $orderProduct->seller_id = $product->seller_id;
                 $orderProduct->save();

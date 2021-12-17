@@ -2,7 +2,7 @@
 
 Auth::routes();
 Route::get('/', function(){
-    $products = App\Product::orderBy('id','DESC')->limit(8)->get();
+    $products = App\Product::limit(9)->get();
     $category_id = App\Category::where('name','Covid 19 Supplies')->first()->id;
     $cproducts = App\Product::where('category_id',$category_id)->orderBy('id','DESC')->limit(4)->get();
     return view('index',compact('products','cproducts'));

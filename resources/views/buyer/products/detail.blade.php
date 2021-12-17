@@ -68,7 +68,7 @@
                             <span class="badge badge-success"> {{ App\Category::find($product->category_id)->name }} </span> </div> 
                             <span class="badge badge-warning">{{$product->stock == null ? "Out of stock" : $product->stock." in stock"  }} </span><br>
                             Rating: <b>{{ $rating }} <span class="fa fa-star checked" style="color: #f44336"></span></b> <br>
-                            Size : {{ $product->s !=null ? 'Small' : '' }} {{ $product->m !=null ? ',Medium' : '' }} {{ $product->l !=null ? ',Large' : '' }}
+                            Size : {{ $product->s =="on" ? 'Small' : '' }} {{ $product->m =="on" ? ',Medium' : '' }} {{ $product->l =="on" ? ',Large' : '' }}
                         <div> <span class="product_price">Rs. {{ number_format($product->price) }} PKR</span></div>
                         <hr class="singleline">
                         <div> {{ $product->description }}</div>

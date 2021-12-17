@@ -43,6 +43,24 @@
                             <label for="quantity1">Quantity</label>
                             <input class="form-control form-control-sm" type="number" name="quantity" id="quantity1" value={{ $product->quantity }}>
                         </div>
+                        <div class="form-group mb-2">
+                            <label for="">Size</label>
+                            <select name="size" id="">
+                                @if ($product->size !=null)
+                                <option value="{{ $product->size }}" selected> {{ $product->size }}</option>
+                                @endif
+                                
+                                @if ($p->s == "on")
+                                    <option value="s">s</option>
+                                @endif
+                                @if ($p->m == "on")
+                                <option value="m">m</option>
+                                @endif
+                                @if ($p->l == "on")
+                                    <option value="l">l</option>
+                                @endif
+                            </select>
+                        </div>
                         <button type="submit" class="btn btn-secondary btn-sm btn-block mb-2">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-refresh-cw mr-1">
                                 <polyline points="23 4 23 10 17 10"></polyline>

@@ -11,6 +11,8 @@ use App\Product;
 use App\User;
 use App\Review;
 use Auth;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\OrderMail;
 
 class OrderController extends Controller
 {
@@ -163,6 +165,8 @@ class OrderController extends Controller
                     $order->status = "OrderPlaced";
                     $order->seller_id = $product->seller_id;
                     $order->save();
+                    $seller_email = User::find($seller_id)->email;
+                    // Mail::to($seller_email)->send(new OrderMail($order));
                 }
                 $product->delete();
             }

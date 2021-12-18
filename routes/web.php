@@ -151,3 +151,8 @@ Route::get('seller/view-quotation/{id}','QuotationController@viewQuotation')->mi
 Route::post('seller/view-quotation/{id}','QuotationController@submitQuotation')->middleware('auth','seller');
 Route::get('seller/view-quotation/delete-product/{id}','QuotationController@deleteProduct')->middleware('auth','seller');
 Route::post('seller/response-requests/addProduct/{bidId}/{productId}','QuotationController@addRequestProduct')->middleware('auth','seller');
+
+Route::get('test', function(){
+    $order = App\Order::find(14);
+    return view('emails.order',compact('order'));
+});

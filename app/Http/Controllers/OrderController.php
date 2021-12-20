@@ -124,6 +124,8 @@ class OrderController extends Controller
             return redirect()->back()->with('msg','Please fill all buyer details');
         }
 
+        $sellers_array = [];
+
         // Generate OrderID
         $previousOrderId = 0;
         $latestOrder = Order::orderBy('created_at','DESC')->first();
@@ -165,11 +167,18 @@ class OrderController extends Controller
                     $order->status = "OrderPlaced";
                     $order->seller_id = $product->seller_id;
                     $order->save();
-                    $seller_email = User::find($seller_id)->email;
-                    // Mail::to($seller_email)->send(new OrderMail($order));
+                    array_push($sellers_array, $order);
+                    
                 }
                 $product->delete();
             }
+            // mail sending
+            foreach ($sellers_array as $seller) {
+                $seller_email = User::find($seller->seller_id)->email;
+                $subject = "New Order Received - Medicaluncle";
+                Mail::to($seller_email)->send(new OrderMail($seller,$subject));
+            }
+            
             return view('buyer.order-place',compact('order_nr'));
         } else {
             return redirect()->back()->with('msg','You dont have any items in cart, Please Add.');

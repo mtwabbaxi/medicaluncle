@@ -6,7 +6,7 @@
 
 		<div class="headersubmitlink">
 			<a href="{{ url('buyer/track-order') }}">Track your Order</a>
-			<a href="{{ url('buyer/b2bproducts') }}">B2B Products</a>
+			<a href="{{ url('buyer/b2bproducts') }}">Bulk Products</a>
 		</div>
 		
 
